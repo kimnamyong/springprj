@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1> æ»≥Á«œººø‰</h1>
+<h1> æ»≥Á«œººø‰ π›∞©Ω¿¥œ¥Ÿ.</h1>
 <h3>${user} ¥‘  ${message}</h3>
 <h3><fmt:formatDate pattern="yyyy-MM-dd HH:mm:ss" value="${ now }" /></h3>
 </body>

@@ -139,16 +139,32 @@ date2.jsp
 
 작업하기
 
+JSP기초#2 
+loop1.jsp
+loop2.jsp
+loop3.jsp
+
+if1.jsp
+if2.jsp
 
 
+"","/"
 
+viewresolver
 
+view를 선택
+페이지선택
+페이지에 데이터전달
 
+bean(빈)
 
+jsp
+Internal Resouce ViewResolver
 
+HomeController2
 
-
-
+@Contoller
+@RestController
 
 
 
