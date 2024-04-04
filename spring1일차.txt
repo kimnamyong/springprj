@@ -6,3 +6,4 @@ repository
 ->springprj
 
 https://github.com/kimnamyong/springprj.git
+https://github.com/kimnamyong/springprj.git
