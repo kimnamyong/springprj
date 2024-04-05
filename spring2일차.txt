@@ -187,20 +187,36 @@ form2-> select1.jsp
 Form3Controller
 
 
+6번게시판
+입력폼#2
+
+form5/register1.jsp
 
 
+spring dto 이미지검색
+Data Transfer Object
 
+Member.java
 
+dto->Member.java
 
+비지니스계층
+퍼시스턴스계층
 
+Lombok
 
+@Data
+Getter, 
+Setter, 
+equals, 
+hashCode, 
+toString 
 
+java -jar lombok.jar
 
+projectorg lombok p2
 
-
-
-
-
+https://projectlombok.org/p2
 
 
 
