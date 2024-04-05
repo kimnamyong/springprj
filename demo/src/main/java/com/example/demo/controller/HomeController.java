@@ -21,6 +21,7 @@ public class HomeController {
 		//  /WEB-INF/views/ 폴더에서 찾는다.
 	}
 	
+	// http://localhost:8088
 	@GetMapping({"","/"})
 	public String index2(Model model) {
 		model.addAttribute("user","이순신");

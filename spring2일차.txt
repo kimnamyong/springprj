@@ -1,0 +1,218 @@
+스프링 2일차
+
+git hub
+
+repository
+->springprj
+
+https://github.com/kimnamyong/springprj.git
+
+이클립스
+1) spring STS 로 설치하기-Spring Tools 4
+2) eclipse에 market에서 설치하기
+3) https://start.spring.io/ 에서 설치하기
+
+전자정부프레임워크
+
+개발언어
+자바-17
+
+-뷰(view) template 엔진
+jsp
+mustach
+Thymeleaf *
+
+FreeMarker
+Velocity
+Pebble
+
+빌드관리도구-툴
+maven-xml
+gradle -> groovy
+
+Ant
+Ivy
+
+스프링의 작동원리
+스프링(jsp)->2번게시판
+
+Mybatis - interface
+JPA- interface
+
+Persistance API
+
+@Controller
+@RestController
+
+@관리자
+@안내인
+@Service
+
+@Bean
+@Transactional
+
+영속성 컨텍스트
+ViewResolver
+디스패쳐(Dispatcher),
+데이터소스(DataSource)
+
+Hibernate
+
+자바 표준 
+ORM(Object-Relational Mapping) 
+프레임워크
+
+file->switch workspace->other
+->springprj
+
+help->eclipse marketplace
+
+spring4
+
+file->new->other->
+spring boot->Spring starter project
+
+spring web
+spring boot dev tool
+
+spring(예제)->1번게시판
+Spring Web MVC
+1번, 3번, 4번
+
+RunAs->Spring Boot App
+
+http://localhost:8080/
+
+resources->static->html
+정적파일
+
+webapp->hello.jsp
+
+1번게시판
+
+2.0 -> 3.0
+javax -> jakarta
+
+index.jsp
+
+http://localhost:8088/
+->index.html
+
+http://localhost:8088/index.jsp
+
+
+/WEB-INF/views/
+
+http://localhost:8088/jsp01/index.jsp
+
+webapp->
+/WEB-INF/views/
+
+직접접근이 안된다.
+
+views->index.jsp
+
+자바컨트롤러
+
+controller 패키지
+
+HomeController.java
+
+@RequestMapping("index")
+@GetMapping
+
+URI 맵핑
+http://localhost:8088/index
+
+
+/WEB-INF/views/
+index.jsp 
+viewresolver 뷰리졸버
+
+
+viewresolver
+
+view를 선택
+페이지선택
+페이지에 데이터전달
+
+bean(빈)
+
+jsp
+Internal Resouce ViewResolver
+
+HomeController2
+
+@Contoller
+@RestController
+
+backend->spring(예제)
+-> 5번게시판
+입력폼#1
+
+/student?id=kim
+
+patch 부분수정
+put 전체수정
+
+
+controller->Form1Controller.java
+
+
+WEB-INF/views/form1
+  ->text1.jsp 
+
+
+url에 주소입력하고 엔터
+-> get 방식
+
+form1/text2
+
+37번
+
+
+index.html
+ -> a href="/page" 
+
+static->index.html
+
+a태그로 링크걸기->get맵핑
+
+37 페이지
+Form2Controller.java
+
+form2-> select1.jsp
+
+46페이지
+Form3Controller
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
