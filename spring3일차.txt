@@ -1,0 +1,62 @@
+스프링 3일차
+
+
+이클립스
+1) spring STS 로 설치하기-Spring Tools 4
+2) eclipse에 market에서 설치하기
+3) https://start.spring.io/ 에서 설치하기
+
+스프링(예제)
+->14번게시판
+
+spring mvc기초(thymleaf)
+
+https://start.spring.io/
+
+pom.xml
+build.gradle
+
+인텔리제이
+
+file->settings->plugins
+
+dto -> Product
+controller -> FirstController
+
+@Controller
+ -> view page 
+
+@RestController
+ -> json 데이터 
+
+jackson 라이브러리
+
+http://localhost:8088/first/test1
+
+
+second/test1.html
+
+!
+doc
+
+SecondController
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
