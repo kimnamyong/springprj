@@ -40,8 +40,72 @@ second/test1.html
 doc
 
 SecondController
+HomeController
+
+loop.html
+
+SLF4J(Simple Logging Facade for Java)
+@Slf4j
+
+16번게시판
+03 파라미터전달(jsp)
 
 
+param
+
+
+
+// https://mvnrepository.com/artifact/jakarta.servlet.jsp.jstl/jakarta.servlet.jsp.jstl-api
+implementation group: 'jakarta.servlet.jsp.jstl', name: 'jakarta.servlet.jsp.jstl-api', version: '3.0.0'
+
+// https://mvnrepository.com/artifact/org.glassfish.web/jakarta.servlet.jsp.jstl
+implementation group: 'org.glassfish.web', name: 'jakarta.servlet.jsp.jstl', version: '3.0.1'
+
+// https://mvnrepository.com/artifact/org.apache.tomcat.embed/tomcat-embed-jasper
+implementation group: 'org.apache.tomcat.embed', name: 'tomcat-embed-jasper', version: '9.0.87'
+
+
+mybatis 기초
+
+파라미터
+폼전송
+
+CASCADE
+무한순환참조
+
+
+mybatis1
+
+web
+dev
+lombok
+mysql
+thymeleaf
+mybatis
+sql과 자바객체를 맵핑
+dto ->   테이블
+자바빈즈
+
+dto
+mapper
+controller
+
+
+student/list
+
+studentMapper
+departmentMapper
+
+
+@Autowired
+주입
+dependency injection
+DI
+
+mybatis
+jpa
+
+th:field -> input태그의 value
 
 
 

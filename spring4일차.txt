@@ -1,0 +1,68 @@
+스프링 4일차
+
+
+Backend-> Spring(예제)
+
+01 데이터목록조회(3.0.6)
+
+
+spring 프레임워크
+웹개발 위주
+블로그,게시판,쇼핑몰사이트
+
+사용하는 언어
+java 11~17
+
+스프링버전 2.0 X
+3.0 이상
+
+ORM(객체관계맵핑)
+ - Mybatis
+ - JPA
+
+validation
+pagination
+
+CRUD 기능테스트
+테스트코드 작성하기
+RestAPI 실습하기
+
+spring security - 어렵다.
+
+view단
+jsp, mustach, thymleaf
+
+관리도구
+maven, gradle
+-------------------------
+Lombok
+
+https://start.spring.io/
+
+dto -> 패키지
+
+mybatis
+
+jPQL
+jsdL
+
+mapper ->패키지
+StudentMapper.java
+
+respository
+
+
+영속성 컨텍스트
+
+controller
+->StudentController.java
+
+안내자-> mapper
+
+의존성주입(DI)
+
+
+
+
+
+
