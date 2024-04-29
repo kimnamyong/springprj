@@ -1,0 +1,17 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>타임리프 시작</title>
+</head>
+<body>
+<h1> 상품 데이터 출력</h1>
+
+<p> 상품명 : <span th:text="${itemDto.itemNm}"></span></p>
+<p>상품설명 :
+  <span th:text="${itemDto.itemDetail}"></span></p>
+<p>상품가격:<span th:text="${itemDto.price}"></span></p>
+<p>상품등록일:<span th:text="${itemDto.regTime}"></span></p>
+
+</body>
+</html>

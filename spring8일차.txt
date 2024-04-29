@@ -1,0 +1,130 @@
+스프링 8일차
+
+//스프링관련용어
+
+DI(의존성주입)
+Object Mapper(ORM)
+AOP
+영속성컨텍스트
+엔티티(Entity)와 DTO
+서비스와 트랜잭션과 롤백
+컨트롤러와 서비스와 리파지토리
+맵퍼와 리파지토리
+mybatis와 JPA
+jsp/mustache/thymeleaf
+ViewResolver
+디스패쳐
+Data Source
+RestController와 Controller
+ResponseBody/RequestBody
+RequestParamer
+PathVariable
+인터셉터와 세션
+
+스프링예제->23번게시판
+Spring form validation #3
+pagination1,2,3,4
+--------------------------
+jpa 실습
+JPQL, querydsl
+---------------------------
+dto
+edit
+validation #1 기본 구현
+validation #2 
+ValidationMessages.properties
+application.proerties
+application-test.properties
+-----------------------------
+dto
+controller
+service
+mapper
+model
+
+jsp->war
+나머지 -> jar 
+
+servlet initializer
+
+dto
+클라이언트와 서버간의 
+데이터전송을 위해 사용
+
+model
+애플리케이션 내부에서 사용되는
+모든 데이터를 포함
+
+controller -> view resolver
+service
+mapper/repostotory
+DB 
+
+template 
+${studentEdit.studentNo}
+
+
+^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$
+
+28번 게시판
+
+0 
+15
+30
+
+recordCount
+전체레코드개수-> 187개?
+
+pageSize
+페이지당 레코드수 -> 15개
+
+currentPage
+현재페이지
+
+getFirstRecordIndex()
+시작번호
+baseNo
+
+현재페이지번호
+pagination.pg
+
+페이지당레코드수
+pagination.sz
+
+전체페이지수
+pageCount
+
+
+pagination #2
+29번게시판
+
+
+book2 데이터베이스
+book 테이블
+
+pagination #3
+구현+검색
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

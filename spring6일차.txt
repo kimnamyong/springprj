@@ -1,0 +1,64 @@
+스프링 6일차
+
+Backend-> Spring(예제)
+->17번게시판
+
+mybatis resultMap#1,#2,#3
+
+orm 기술
+object relation mapping
+
+@Mapper
+
+XML파일 
+18번게시판 
+resultMap#2
+
+필드주입
+생성자주입
+
+//스프링관련용어
+
+DI(의존성주입)
+Object Mapper(ORM)
+AOP
+영속성컨텍스트
+엔티티(Entity)와 DTO
+서비스와 트랜잭션과 롤백
+컨트롤러와 서비스와 리파지토리
+맵퍼와 리파지토리
+mybatis와 JPA
+jsp/mustache/thymeleaf
+ViewResolver
+디스패쳐
+Data Source
+RestController와 Controller
+ResponseBody/RequestBody
+RequestParamer
+PathVariable
+인터셉터와 세션
+
+
+mybatis resultMap #3
+
+resultmap2 -> 연습문제
+학과별 소속 학생 출력해라
+
+
+정렬순서
+------------------
+validation
+pagination
+
+jpa 
+entity 테이블
+dto->entity
+
+
+
+
+
+
+
+
+

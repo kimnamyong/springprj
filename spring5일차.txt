@@ -1,0 +1,63 @@
+스프링 5일차
+
+Backend-> Spring(예제)
+->7번게시판
+[DB CRUD] 
+01 학생 등록 기능 구현(MyBatis)-spring(2.2.11/3.1.0)
+
+form:form 태그
+
+1) Student.java
+2) StudentMapper.java
+  -> interface
+3) StudentController.java
+
+dto
+mapper
+controller
+
+13번게시판
+
+create -> update
+
+Thymeleaf 실습하기
+
+Spring CRUD 기본실습끝
+
+5월 1일은 휴강
+
+서버사이드 렌더링 방식
+jsp, thymeleaf, mustache
+
+spring예제->25번게시판 참조
+
+pom.xml
+build.gradle
+
+
+file->settings
+->build->build tools->gradle
+-> InteliJ IDEA
+
+status.index
+status.value
+
+layout 
+
+fragments/footer.html
+fragments/header.html
+layouts/layout1.html
+
+본문
+thymeleaf/ex07.html
+
+mybatis resultMap
+mybatis validation 
+
+jpa 방식
+
+https://www.tiobe.com/tiobe-index/
+구글트랜드
+
+
+

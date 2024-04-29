@@ -61,6 +61,61 @@ controller
 
 의존성주입(DI)
 
+/webapp/WEB-INF/views/student/list.jsp
+
+
+http://localhost:8088/student/list
+
+#{ }
+
+:param
+
+
+@Controller
+   @ResponseBody
+
+
+@RestController
+
+9번게시판
+이름으로 조회하기
+
+
+SELECT s.*, d.departmentName 
+FROM student s LEFT JOIN department d ON s.departmentId = d.id
+WHERE s.name LIKE '이%'
+
+
+alter table department rename column
+  name to departmentName
+
+JPA
+:name
+
+<c:if test="${empty students}">
+                <p>찾는 학생이 존재하지 않습니다.</p>
+            </c:if>
+
+10번 게시판
+학생 한명조회하기
+detail.jsp
+
+11번 게시판
+학생조회기능 종합
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

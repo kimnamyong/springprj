@@ -1,0 +1,23 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>타임리프 시작5</title>
+</head>
+<body>
+
+<h1> 타임리프 링크처리</h1>
+<div>
+  <a th:href="@{/thyme/ex02}">
+    예제2 페이지 이동</a>
+</div>
+<div>
+  <a th:href="@{https://www.thymeleaf.org}">
+    공식 페이지 이동</a>
+</div>
+<div>
+  <a th:href="@{/thyme/ex06(param1='파라미터 데이터1',param2='파라미터 데이터2')}">
+    thymeleaf 파라미터 전달</a>
+</div>
+</body>
+</html>

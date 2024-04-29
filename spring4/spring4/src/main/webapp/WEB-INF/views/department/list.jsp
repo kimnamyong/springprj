@@ -14,7 +14,7 @@
 </head>
 <body>
 <div class="container">
-  <h1>학생목록</h1>
+  <h1>학과목록</h1>
 
   <table class="table table-bordered table-condensed">
     <thead>

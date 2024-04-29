@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="/common.css" />
+  <script type="text/javascript" src="/common.js"></script>
+  <style>
+    a.btn { float: right; margin-top: -40px; }
+  </style>
+</head>
+<body>
+<div class="container">
+  <h1>도서목록</h1>
+  <form method="get" th:object="${pagination}">
+    <input type="hidden" name="pg" value="1" />
+    <input type="text" th:field="*{st}" placeholder="검색" />
+    <button type="submit" class="btn">검색</button>
+    <a href="list" class="btn">취소</a>
+    <a th:href="${ 'create?' + pagination.queryString }"
+       class="btn blue">도서등록</a>
+  </form>
+  <table class="list">
+    <thead>
+    <tr>
+      <th>id</th>
+      <th>title</th>
+      <th>author</th>
+      <th>price</th>
+      <th>publisher</th>
+      <th>bookCategory</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="b : ${ books }"
+        th:href="${ 'edit?id=' + b.id + '&' + pagination.queryString }"
+        onclick="onClickHref(event)">
+      <td th:text="${ b.id }"></td>
+      <td th:text="${ b.title }"></td>
+      <td th:text="${ b.author }"></td>
+      <td th:text="${ b.price }"></td>
+      <td th:text="${ b.publisher }"></td>
+      <td th:text="${ b.bookCategory }"></td>
+
+    </tr>
+    </tbody>
+  </table>
+  <div th:replace="~{fragments::pagination}"></div>
+
+<!-- <p th:text="${books}"></p>-->
+</div>
+
+
+
+</div>
+</body>
+</html>
