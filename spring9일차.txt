@@ -1,0 +1,71 @@
+스프링 9일차
+
+//스프링관련용어
+
+DI(의존성주입)
+Object Mapper(ORM)
+AOP
+영속성컨텍스트
+엔티티(Entity)와 DTO
+서비스와 트랜잭션과 롤백
+컨트롤러와 서비스와 리파지토리
+맵퍼와 리파지토리
+mybatis와 JPA
+jsp/mustache/thymeleaf
+ViewResolver
+디스패쳐
+Data Source
+RestController와 Controller
+ResponseBody/RequestBody
+RequestParamer
+PathVariable
+인터셉터와 세션
+
+스프링예제->31번게시판
+Spring form validation #4
+pagination1,2,3,4
+--------------------------
+jpa 실습
+JPQL, querydsl
+---------------------------
+
+34번게시판
+JPA기초
+
+JPA ->자바스크립트
+spring data jpa - 제이쿼리
+
+
+findById(id)
+findByUserName(name)
+findByPassWord(password)
+
+entity
+repository
+
+Optional<T> 객체
+
+테스트코드 작성
+Service
+Repository
+
+
+@Transactional
+테스트하고 롤백하기
+
+
+35번게시판
+single-value association
+
+collection-value association
+
+Repository
+CrudRepository
+ListCrudRepository
+JpaRepository
+
+
+
+
+
+

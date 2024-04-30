@@ -30,14 +30,13 @@ public class StudentController {
  DepartmentService departmentService;
 
  @GetMapping("list")
- public String list(Model model, Pagination pagination, HttpServletRequest request) {
+ public String list(Model model, Pagination pagination) {
 
-  log.info("get URL {} " , request.getRequestURL().toString());
-
-  pagination.setUrl(request.getRequestURL().toString());
   List<Student> students = studentService.findAll(pagination);
   model.addAttribute("students", students);
+  model.addAttribute("orders", studentService.getOrders());
   return "student/list";
+
  }
 
  @GetMapping("create")

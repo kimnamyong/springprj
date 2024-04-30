@@ -15,7 +15,7 @@ public class Pagination {
  int recordCount;   // 전체 레코드 수
  String url;        // 목록 페이지 url
  String st = "";    // 검색 문자열
-
+ int od = 0;        // 정렬 순서
 
  public int getFirstRecordIndex() {
   return (pg - 1) * sz;
@@ -24,11 +24,11 @@ public class Pagination {
  public String getQueryString() {
   try {
    String encoded = URLEncoder.encode(st, "UTF-8");
-   return String.format("pg=%d&sz=%d&st=%s", pg, sz, encoded);
+   return String.format("pg=%d&sz=%d&od=%d&st=%s", pg, sz, od, encoded);
   } catch (UnsupportedEncodingException e) {
    e.printStackTrace();
   }
-  return String.format("pg=%d&sz=%d&st=%s", pg, sz, st);
+  return String.format("pg=%d&sz=%d&od=%d&st=%s", pg, sz, od, st);
 
  }
 //

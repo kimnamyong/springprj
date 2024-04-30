@@ -19,6 +19,11 @@ public class StudentService {
 
  ModelMapper modelMapper = new ModelMapper();
 
+ public StudentMapper.Order[] getOrders() {
+  return StudentMapper.orders;
+ }
+
+
  public StudentEdit findOne(int id) {
   Student studentDto = studentMapper.findOne(id);
   return toEditModel(studentDto);
@@ -40,6 +45,7 @@ public class StudentService {
    throw new Exception("입력 데이터 오류");
   Student student = toDto(studentEdit);
   studentMapper.insert(student);
+  pagination.setSt("");
   int lastPage = (int)Math.ceil((double)studentMapper.getCount(pagination) / pagination.getSz());
   pagination.setPg(lastPage);
  }

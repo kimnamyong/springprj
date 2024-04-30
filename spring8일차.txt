@@ -105,9 +105,17 @@ book 테이블
 pagination #3
 구현+검색
 
+SELECT COUNT(*)
+            FROM student s LEFT JOIN department d ON s.departmentId = d.id
+            WHERE #{st} = '' OR
+              s.studentNo = #{st} OR
+              s.name LIKE '정보' OR
+              d.name LIKE '정보' 
+
+ """)
 
 
-
+https://github.com/kimnamyong/springprj
 
 
 
