@@ -4,6 +4,8 @@ import com.jpa1.entity.Department;
 import com.jpa1.repository.DepartmentRepository;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -49,5 +51,18 @@ public class DepartmentController {
   departmentRepository.deleteById(id);
   return true;
  }
+
+ @RequestMapping("department/list1")
+ public List<Department> list1(Model model) {
+  model.addAttribute("departments", departmentRepository.findAll());
+  return departmentRepository.findAll();
+ }
+
+ @RequestMapping("department/list2")
+ public List<Department> list2(Model model) {
+  model.addAttribute("departments", departmentRepository.findAll());
+  return departmentRepository.findAll();
+ }
+
 
 }

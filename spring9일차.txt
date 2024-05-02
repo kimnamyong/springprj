@@ -56,13 +56,55 @@ Repository
 
 35번게시판
 single-value association
-
 collection-value association
 
 Repository
 CrudRepository
 ListCrudRepository
 JpaRepository
+
+36번
+
+fetchType.Eager
+Lazy
+
+mappedBy -> deparment
+연관관계의 주인 ?
+
+spring.jpa.hibernate.ddl-auto=create/update
+
+jpa 인터페이스 -> hibernate jpa 구현체
+
+순환참조
+
+@Data
+getter, setter, tostring, equal and hash
+
+@Getter
+@Setter
+
+학과별로 학생명단을 구한다.
+
+front 단에서 
+ajax 요청
+
+순환참조 발생
+
+StackOverflow
+
+recursion
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -1,0 +1,89 @@
+스프링 10일차
+
+//스프링관련용어
+
+DI(의존성주입)
+Object Mapper(ORM)
+AOP
+영속성컨텍스트
+엔티티(Entity)와 DTO
+서비스와 트랜잭션과 롤백
+컨트롤러와 서비스와 리파지토리
+맵퍼와 리파지토리
+mybatis와 JPA
+jsp/mustache/thymeleaf
+ViewResolver
+디스패쳐
+Data Source
+RestController와 Controller
+ResponseBody/RequestBody
+RequestParamer
+PathVariable
+인터셉터와 세션
+연관관계의 주인 mapped by
+영속성컨텍스트->dirty 체킹
+@Transactional
+Optional
+------------------------
+
+37번게시판
+jpa query creation
+
+34번 jpa기초
+35번 single value association
+36번 collection-valued asscoiation
+
+@Controller
+return list -> list.html
+
+@Controller
+  @ResponseBody aaa(){
+  return "list"  -> json 문자열
+}
+
+
+@RestController
+return "list"  -> json 문자열
+
+jackson libraray
+
+JpaRepository
+
+departmentRepository.findById(id).orElse(null);
+
+
+single value association
+필수항목
+
+순환참조
+@Data
+
+JSON
+@RestController
+
+StackOverflow
+
+@Getter
+@Setter
+
+naming convention
+
+1
+2
+3
+4
+5
+Long
+
+Optional 객체
+null 객체를 취급하는 객체
+
+테스트코드 작성
+
+
+
+
+
+
+
+

@@ -1,13 +1,14 @@
 package com.jpa1.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import lombok.AllArgsConstructor;
-import lombok.Data;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.*;
+import lombok.*;
+
+import java.util.List;
 
 @Data
+//@Getter
+//@Setter
 @Entity
 public class Department {
  @Id
@@ -17,5 +18,12 @@ public class Department {
  String name;
  String shortName;
  String phone;
+
+ @JsonIgnore
+ @ToString.Exclude
+ @EqualsAndHashCode.Exclude
+ @OneToMany(mappedBy="department", fetch=FetchType.EAGER)
+ List<Student> students;
+
 
 }
