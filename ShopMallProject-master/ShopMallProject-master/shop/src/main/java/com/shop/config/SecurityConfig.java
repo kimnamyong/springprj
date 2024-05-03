@@ -34,10 +34,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .logoutSuccessUrl("/");
 
         http.authorizeRequests()
-                .mvcMatchers("/css/**", "/js/**", "/img/**").permitAll()
-                .mvcMatchers("/", "/members/**", "/item/**", "/images/**").permitAll()
-                .mvcMatchers("/admin/**").hasRole("ADMIN")
-                .anyRequest().authenticated()
+        .mvcMatchers("/css/**", "/js/**", "/img/**").permitAll()
+        .mvcMatchers("/", "/members/**", "/item/**", "/images/**","/mail/**").permitAll()
+        .mvcMatchers("/admin/**").hasRole("ADMIN")
+        .anyRequest().authenticated()
+        .and().csrf().ignoringAntMatchers("/mail/**") // csrf disable 설정 
         ;
 
         http.exceptionHandling()

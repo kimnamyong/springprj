@@ -28,9 +28,13 @@ Optional
 42번게시판
 jpa form validation #2
 jpa form validation #3
-jpa form validation #4
+
 -------------------------
 
+cmd
+mysqld --install
+
+jpa pagination #1
 
 
 
