@@ -12,6 +12,8 @@ import com.shop.repository.CartRepository;
 import com.shop.repository.ItemRepository;
 import com.shop.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -19,6 +21,7 @@ import javax.persistence.EntityNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 
+@Slf4j
 @Service
 @RequiredArgsConstructor
 @Transactional
@@ -56,14 +59,17 @@ public class CartService {
     @Transactional(readOnly = true)
     public List<CartDetailDto> getCartList(String email){
         List<CartDetailDto> cartDetailDtoList = new ArrayList<CartDetailDto>();
-
+        
         Member member = memberRepository.findByEmail(email);
+       
         Cart cart = cartRepository.findByMemberId(member.getId());
+        log.info("cart:{}",cart);
         if(cart == null){
             return cartDetailDtoList;
         }
 
         cartDetailDtoList = cartItemRepository.findCartDetailDtoList(cart.getId());
+        log.info("cartDetailDtoList:{}",cartDetailDtoList);
         return cartDetailDtoList;
     }
 }
