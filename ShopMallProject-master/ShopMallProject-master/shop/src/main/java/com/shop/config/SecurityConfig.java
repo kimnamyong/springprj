@@ -39,6 +39,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         .mvcMatchers("/admin/**").hasRole("ADMIN")
         .anyRequest().authenticated()
         .and().csrf().ignoringAntMatchers("/mail/**") // csrf disable 설정 
+        .ignoringAntMatchers("/members/findId") 
         ;
 
         http.exceptionHandling()

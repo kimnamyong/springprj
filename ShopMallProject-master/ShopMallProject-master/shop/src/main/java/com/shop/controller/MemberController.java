@@ -1,6 +1,8 @@
 package com.shop.controller;
 
+import com.shop.dto.MailDto;
 import com.shop.dto.MemberFormDto;
+import com.shop.service.MailService;
 import com.shop.service.MemberService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -8,6 +10,9 @@ import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.shop.entity.Member;
 import com.shop.repository.MemberRepository;
@@ -20,6 +25,7 @@ import org.springframework.validation.BindingResult;
 
 import java.security.Principal;
 
+import javax.transaction.Transactional;
 import javax.validation.Valid;
 
 @RequestMapping("/members")
@@ -32,6 +38,10 @@ public class MemberController {
 	
  @Autowired
  private MemberRepository memberRepository;
+ 
+ @Autowired
+ private MailService mailService;
+ 
 
 	@GetMapping(value = "/new")
 	public String memberForm(Model model) {
@@ -103,6 +113,37 @@ public class MemberController {
 
      return "mypage/myinfo";
  }
+	
+ // 회원 비밀번호 찾기
+ @GetMapping(value = "/findMember")
+ public String findMember(Model model) {
+     return "/member/findMemberForm";
+ }
+
+ // 비밀번호 찾기시, 임시 비밀번호 담긴 이메일 보내기
+ @Transactional
+ @PostMapping("/sendEmail")
+ public String sendEmail(@RequestParam("memberEmail") String memberEmail){
+ 	
+     MailDto dto = mailService.createMailAndChangePassword(memberEmail);
+     mailService.mailSend(dto);
+
+     return "/member/memberLoginForm";
+ }
+	
+
+ @RequestMapping(value = "/findId", method = RequestMethod.POST)
+ @ResponseBody
+ public String findId(@RequestParam("memberEmail") String memberEmail) {
+     String email = String.valueOf(memberRepository.findByEmail(memberEmail));
+     System.out.println("회원 이메일 = " + email);
+     if(email == null) {
+         return null;
+     } else {
+         return email;
+     }
+ }
+	
 	
 
 }
