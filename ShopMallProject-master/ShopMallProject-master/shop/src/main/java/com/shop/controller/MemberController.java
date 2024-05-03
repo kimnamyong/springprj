@@ -5,14 +5,21 @@ import com.shop.service.MemberService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.shop.entity.Member;
+import com.shop.repository.MemberRepository;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import org.springframework.validation.BindingResult;
+
+import java.security.Principal;
+
 import javax.validation.Valid;
 
 @RequestMapping("/members")
@@ -22,6 +29,9 @@ public class MemberController {
 
 	private final MemberService memberService;
 	private final PasswordEncoder passwordEncoder;
+	
+ @Autowired
+ private MemberRepository memberRepository;
 
 	@GetMapping(value = "/new")
 	public String memberForm(Model model) {
@@ -84,5 +94,15 @@ public class MemberController {
 		model.addAttribute("loginErrorMsg", "아이디 또는 비밀번호를 확인해주세요");
 		return "/member/memberLoginForm";
 	}
+	
+	@GetMapping("/loginInfo")
+ public String memberInfo(Principal principal, ModelMap modelMap){
+     String loginId = principal.getName();
+     Member member = memberRepository.findByEmail(loginId);
+     modelMap.addAttribute("member", member);
+
+     return "mypage/myinfo";
+ }
+	
 
 }
