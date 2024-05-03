@@ -15,6 +15,7 @@ import com.shop.dto.ItemFormDto;
 
 import com.shop.service.ItemService;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
 import javax.persistence.EntityNotFoundException;
 import javax.validation.Valid;
@@ -23,6 +24,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.util.List;
 import java.util.Optional;
 
+@Slf4j
 @Controller
 @RequiredArgsConstructor
 public class ItemController {
