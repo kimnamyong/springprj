@@ -80,6 +80,68 @@ null 객체를 취급하는 객체
 
 테스트코드 작성
 
+hibernate
+
+@Controller
+@RestController
+@Service
+@Repository
+@Entity
+
+https://github.com/kimnamyong/springprj
+
+38번게시판
+jpa query creation#2
+
+
+@ManyToOne 필수
+@OneToMany  선택
+
+게시글
+
+사용자 -> 여러개의 게시글
+           -> 여러개 답글
+
+oracle
+mysql
+post greSQL
+maria
+mongoDB
+H2 
+
+JPQL
+Java Persistence Query Language)
+
+39번게시판
+06 JPA query language
+
+더티체킹
+
+SQL
+select * from department d;
+select d.* from department d;
+
+JPQL
+select d from department d;
+
+@Transactional
+
+40번게시판 
+JPA CRUD 구현 기초
+
+student 테이블에 CRUD
+professor 테이블에 CRUD
+
+jpa validation
+jpa pagination
+spring security *
+--------------------------
+sample project
+
+41번 게시판
+
+쿼리 메소드
+find+엔티티이름+By+변수이름
 
 
 

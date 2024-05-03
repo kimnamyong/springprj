@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <style>
+    table { border-collapse: collapse; margin-top: 5px; }
+    th, td { border: 1px solid gray; padding: 4px; }
+    div#msg { padding: 5px; font-size: 12pt; }
+  </style>
+</head>
+<body>
+<div id="app">
+  <form>
+    <textarea rows="10" cols="100"
+              id="jpql">
+
+    </textarea> <br/>
+    <button type="button"
+            onclick="search()">JPQL 실행
+    </button>
+  </form>
+  <div id="list">
+
+  </div>
+
+  <script>
+
+    function search(){
+
+          var jpql=document.getElementById('jpql').value;
+          console.log("jpql");
+
+         var params = { jpql: jpql };
+          axios.get("execute", { params: params })
+               .then( (response) => {
+                  //list.innerHTML = response.data;
+                  list.innerHTML = JSON.stringify(response.data);
+                console.log(response.data);
+               } )
+               .catch( (error) => this.error = error );
+
+    }
+
+
+  </script>
+</div>
+</body>
+</html>
