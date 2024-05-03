@@ -7,7 +7,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.shop.service.MailService;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 @Controller
 @RequiredArgsConstructor
 public class MailController {
@@ -17,6 +19,8 @@ public class MailController {
     @ResponseBody
     @PostMapping("/mail")
     public String MailSend(String mail){
+    	
+    	log.info("메일:{}",mail);
         int number = mailService.sendMail(mail);
         String num = "" + number;
         return num;

@@ -4,16 +4,19 @@ import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
 
 import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 @Service
 @RequiredArgsConstructor
 public class MailService {
 	private final JavaMailSender javaMailSender;
 // private static final String senderEmail="knyatom@daum.net";
- private static final String senderEmail="knyatom@naver.com";
+ private static final String senderEmail="knyatom@gmail.com";
  private static int number;
 
  public static void createNumber(){
@@ -23,8 +26,12 @@ public class MailService {
 
  public MimeMessage CreateMail(String mail){
      createNumber();
+     
+     log.info("mail:{}",mail);
+     
      MimeMessage message = javaMailSender.createMimeMessage();
-
+   //  MimeMessageHelper helper = new MimeMessageHelper(message, false, "UTF-8");
+     
      try {
          message.setFrom(senderEmail);
          message.setRecipients(MimeMessage.RecipientType.TO, mail);
@@ -43,6 +50,7 @@ public class MailService {
 
  public int sendMail(String mail){
      MimeMessage message = CreateMail(mail);
+     log.info("message:{}",message.toString());
      javaMailSender.send(message);
 
      return number;

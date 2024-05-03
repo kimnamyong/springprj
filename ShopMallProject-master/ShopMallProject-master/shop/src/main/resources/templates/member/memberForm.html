@@ -33,10 +33,12 @@
             crossDomain: true,
             headers: {  'Access-Control-Allow-Origin': 'http://The web site allowed to access' },
             dataType:"json",
-            data:{"mail" : $("#mail").val()},
+            data:{"mail" : $("#email").val()},
             success: function(data){
                 alert("인증번호 발송");
-                $("#Confirm‎").attr("value",data);
+                console.log(data);
+                $("#Confirm‎").val(data);  
+                Confirm.setAttribute("value",data);
             },
             error:function(request, status, error){
               alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
@@ -45,9 +47,9 @@
     };
 
     function confirmNumber(){
-        var number1 = $("#number").val();
-        var number2 = $("#Confirm‎").val();
-
+        var number1 = $("#number1").val();
+        var number2 = $("#Confirm").val();
+	console.log(number1+" "+number2);
         if(number1 == number2){
             alert("인증되었습니다.");
         }else{
@@ -83,12 +85,13 @@
 		</div>
 
 		<div id="mail_number" name="mail_number" style="display: none">
-			<input type="text" name="number" id="number"
+			<input type="text" name="number1" id="number1"
 				style="width: 250px; margin-top: -10px" placeholder="인증번호 입력">
 			<button type="button" name="confirmBtn" id="confirmBtn"
 				onclick="confirmNumber()">이메일 인증</button>
-
 		</div>
+		
+		<input type="hidden" id="Confirm" />
 
 		<div class="form-group">
 			<label th:for="password">비밀번호</label> <input type="password"
