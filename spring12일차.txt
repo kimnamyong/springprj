@@ -1,0 +1,178 @@
+스프링 12일차
+
+//스프링관련용어
+
+DI(의존성주입)
+Object Mapper(ORM)
+AOP
+영속성컨텍스트
+엔티티(Entity)와 DTO
+서비스와 트랜잭션과 롤백
+컨트롤러와 서비스와 리파지토리
+맵퍼와 리파지토리
+mybatis와 JPA
+jsp/mustache/thymeleaf
+ViewResolver
+디스패쳐
+Data Source
+RestController와 Controller
+ResponseBody/RequestBody
+RequestParamer
+PathVariable
+인터셉터와 세션
+연관관계의 주인 mapped by
+영속성컨텍스트->dirty 체킹
+@Transactional
+Optional
+spring security
+------------------------
+48번게시판
+spring security
+-------------------------
+
+인증, 인가, 보안처리
+authentication 
+
+authorization  - 권한
+
+role -> user, admin
+
+로그인하기전메뉴
+
+로그인한후 메뉴
+
+@Controller
+viewresolver
+ -> view page(jsp/html)
+
+
+@RestController
+
+@Controller
+  @ResponseBody
+message converter
+-> json 파일,문자열
+
+CSRF 공격
+
+JWT, Outh2 인증
+csrf.disable()
+
+Spring 6
+
+String getVersion = org.springframe.core.SpringVersion.getVersion();
+System.out.println(getVersion);
+
+Spring boot 3점대
+
+Spring Security
+
+
+
+MyUserDetails -> UserDetails (인터페이스)
+
+MyUserDetailsService -> UserDetailsService 
+
+loadUserByUsername -> Override
+
+
+WebSecurityConfigurerAdapter 
+
+@Configuration
+@EnableWebSecurity
+SecurityConfig.java
+
+PasswordEncoder 
+비밀번호를 암호화
+
+추상화
+
+필터체인 메소드
+
+bbs1.sql 실행
+
+
+
+권한테스트 전
+
+
+user
+
+dto->User.java
+config->MyUserDetails.java
+
+dto
+entity
+controller
+service-> MyUserDetailsService
+config
+repository(mapper)
+model
+
+@Autowired
+UserMapper userMapper;
+
+@RequiredArgsConstructor
+ private final UserMapper userMapper;
+
+
+SecurityContextHolder
+@AuthenticationPrincipal
+Principal principal
+
+config->SpringSecurity.java
+
+Ant 패턴
+
+회원정보변경
+암호변경
+
+
+@Bean
+재활용-재사용
+
+controller->HomeController.java
+
+UserController.java
+
+index.html
+login.html
+
+csrf.disable()
+
+user/index.html
+
+<td th:text="${#authentication.principal.username}"></td>
+<td>[[${#authentication.principal.username}]]</td>
+
+test123
+
+userId
+hong->test123
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
