@@ -150,14 +150,17 @@ test123
 userId
 hong->test123
 
+UserDetail
+UserDetailService
+SecurityConfig
+
+SecurityContextHolder
 
 
+ <p>[[${#username}]] 님 안녕하세요</p>
 
-
-
-
-
-
+.csrf().disable()
+.csrf(AbstractHttpConfigurer::disable)
 
 
 

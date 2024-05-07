@@ -14,7 +14,7 @@
 <body>
 <div class="container">
   <div class="box">
-    <h1>사용자 페이지</h1>
+    <h1>교수 페이지 #1</h1>
     <table>
       <tr>
         <td>로그인ID</td>
@@ -34,26 +34,9 @@
       </tr>
     </table>
 
-    <p>[[${#authentication.principal.username}]]님 안녕하세요</p>
-    <span th:text="${username}"></span>님으로 로그인하셨습니다.
     <a class="btn" href="/logout_processing">로그아웃</a>
-    <hr>
-    <a class="btn" href="/professor/index">교수 페이지1</a>
-    <a class="btn" href="/user/professor_only">교수 페이지2</a>
-    <a class="btn" href="/admin/index">관리자 페이지1</a>
-    <a class="btn" href="/user/admin_only">관리자 페이지2</a>
-
-    <div sec:authorize="hasRole('ROLE_ADMIN')">
-      관리자만 보이는 내용
-    </div>
-
-    <div sec:authorize="hasRole('ROLE_PROFESSOR')">
-      교수만 보이는 내용
-    </div>
-
-    <div>모든 사용자에게 보이는 내용</div>
+    <a class="btn" href="/user/index">뒤로</a>
   </div>
-
 </div>
 </body>
 </html>

@@ -5,6 +5,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
@@ -19,14 +20,14 @@ public class SecurityConfig {
   http.authorizeHttpRequests((requests) -> requests
                   .requestMatchers("/admin/**").hasRole("ADMIN")
                   .requestMatchers("/professor/**").hasRole("PROFESSOR")
-                  .requestMatchers("/user/**").authenticated()
+                  .requestMatchers("/user/**","/admin/**","/professor/**").authenticated()
                   .anyRequest().permitAll()
           )
           .formLogin((form) -> form
                   .loginPage("/login")
                   .loginProcessingUrl("/login_processing")
                   .failureUrl("/login?error")
-                  .defaultSuccessUrl("/", true)
+                  .defaultSuccessUrl("/user/redirect", true)
                   .usernameParameter("loginName")
                   .passwordParameter("passwd")
                   .permitAll()
@@ -35,9 +36,17 @@ public class SecurityConfig {
                   .logoutRequestMatcher(new AntPathRequestMatcher("/logout_processing"))
                   .logoutSuccessUrl("/login")
                   .invalidateHttpSession(true)
-                  .permitAll());
+                  .permitAll())
+
+  ;
+
+
   return http.build();
  }
+
+
+ // false 는 보안컨텍스를 유지하지 않는다. 로그인상태유지
+ // true 는 보안컨텍스를 유지한다.
 
  @Bean
  PasswordEncoder passwordEncoder() {
