@@ -163,14 +163,29 @@ SecurityContextHolder
 .csrf(AbstractHttpConfigurer::disable)
 
 
+49번게시판
 
+로그인&회원가입
 
+3.2.5
+///////// 프로젝트
+게시판-mustach
+블로그-jsp
+쇼핑몰-thymleaf
+게시판-thymleaf
+/////////
 
+33번게시판
+URL과 Context Path
 
+32번게시판
+에러처리와 로그
 
+@Slf4j
 
-
-
+log.info
+log.error
+@ControllerAdvice
 
 
 
