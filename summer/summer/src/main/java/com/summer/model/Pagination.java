@@ -1,0 +1,28 @@
+package com.summer.model;
+
+import lombok.Data;
+
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+
+@Data
+public class Pagination {
+ int pg = 1;        // 현재 페이지 번호
+ int sz = 15;       // 페이지 당 레코드 수
+ int si = 0;        // 검색 조건
+ int od = 0;        // 정렬 순서
+ int bd =0; // board id
+ String st = "";    // 검색 키워드
+ int recordCount;   // 전체 레코드 수
+
+ public String getQueryString() {
+  try {
+   String encoded = URLEncoder.encode(st, "UTF-8");
+   return String.format("pg=%d&sz=%d&si=%d&od=%d&st=%s&bd=%d", pg, sz, si, od, st,bd,  encoded);
+  } catch (UnsupportedEncodingException e) {
+   e.printStackTrace();
+  }
+  return null;
+ }
+}
+

@@ -46,14 +46,14 @@ public class StudentController {
         return "redirect:list";
     }
 
-    @GetMapping("edit")
-    public String edit(Model model, int id) {
-        Student student = studentMapper.findOne(id);
-        List<Department> departments = departmentMapper.findAll();
-        model.addAttribute("student", student);
-        model.addAttribute("departments", departments);
-        return "student/edit";
-    }
+//    @GetMapping("edit")
+//    public String edit(Model model, int id) {
+//        Student student = studentMapper.findOne(id);
+//        List<Department> departments = departmentMapper.findAll();
+//        model.addAttribute("student", student);
+//        model.addAttribute("departments", departments);
+//        return "student/edit";
+//    }
 
     @PostMapping("edit")
     public String edit(Model model, Student student) {
@@ -61,10 +61,10 @@ public class StudentController {
         return "redirect:list";
     }
 
-    @GetMapping("delete")
-    public String delete(Model model, int id) {
-        studentMapper.delete(id);
-        return "redirect:list";
-    }
+//    @GetMapping("delete")
+//    public String delete(Model model, int id) {
+//        studentMapper.delete(id);
+//        return "redirect:list";
+//    }
 }
 

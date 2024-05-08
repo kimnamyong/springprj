@@ -15,6 +15,7 @@ public class MyUserDetails implements UserDetails {
  final boolean accountNonExpired = true;
  final boolean accountNonLocked = true;
  final boolean credentialsNonExpired = true;
+
  final String password;
  final String username;
  final boolean isEnabled;
@@ -41,4 +42,6 @@ public class MyUserDetails implements UserDetails {
   this.email = user.getEmail();
   this.userType = user.getUserType();
  }
+
+
 }
