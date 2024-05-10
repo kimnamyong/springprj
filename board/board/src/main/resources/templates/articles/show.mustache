@@ -1,0 +1,37 @@
+{{>layouts/header}}
+<table class="table">
+  <thead>
+  <tr>
+    <th scope="col">ID</th>
+    <th scope="col">Title</th>
+    <th scope="col">Content</th>
+  </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>{{article.id}}</th>
+      <td>{{article.title}}</td>
+      <td>{{article.content}}</td>
+    </tr>
+  </tbody>
+</table>
+<!--수정링크추가-->
+<a href="/articles/{{article.id}}/edit" class="btn btn-success">수정</a>
+<!--삭제링크추가-->
+<a href="/articles/{{article.id}}/delete"
+   class="btn btn-danger" onclick="return delOk();">삭제</a>
+
+<a href="/articles" class="btn btn-success">목록보기</a>
+
+{{>layouts/footer}}
+
+<script>
+  function delOk(){
+    var delOk=confirm("삭제할까요?");
+    if(delOk){
+       return true;  // 다음 단계로 진행
+    }else{
+       return false;  // 다음 단계로 진행 안함
+    }
+  }
+</script>

@@ -143,6 +143,26 @@ ArticleRepository
 /articles
 모든 게시글이 보이게 하자
 
+12강 데이터목록조회하기
+articles->
+index.mustache
+
+
+11강 id로 데이터 조회하기
+
+Optional 객체
+
+링크와 리다이렉트
+
+
+
+
+
+
+
+
+
+
 
 
 
