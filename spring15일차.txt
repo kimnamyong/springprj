@@ -83,6 +83,69 @@ help->find action
 ->plugins ->marketplace
 ->mustache
 
+doc-> tab
+ {{ }}
+
+controller->
+FirstController.java
+
+localhost:8088/hello.html
+
+// package
+controller -> @Controller
+api -> @RestController
+
+5번게시판참조
+6장 템플릿과 레이아웃
+
+{{>layouts/header}}
+
+{{>layouts/footer}}
+
+
+templates/layouts/header.mustache
+templates/layouts/footer.mustache
+
+templates/goodbye.mustache
+
+
+7장 폼데이터 주고 받기
+
+template/articles/new.mustache
+
+get 으로 폼화면 열기
+post로 폼데이터 전송하기
+
+ArticleController
+
+dto 객체
+dto->
+ArticleForm.java
+
+@AllArgConstructor
+@ToString
+
+JPA로 DB로 데이터 생성하기
+
+1) DTO->Entity
+2) Entity->Repository 저장
+
+entity 패키지
+Article.java
+
+ArticleRepository
+
+폼에 입력한 데이터를
+엔티티에 저장한다.
+
+엔티티->리파지토리로 저장
+
+/articles
+모든 게시글이 보이게 하자
+
+
+
+
 
 
 

@@ -13,9 +13,19 @@ public class FirstController {
  @GetMapping("/hi")
  public String niceTo(Model model){
   model.addAttribute("username","이순신");
+  model.addAttribute("nickname","이순신");
   return "greetings";
   // templates/greetings.mustache
  }
+
+ @GetMapping("/bye")
+ public String byeTo(Model model){
+  model.addAttribute("username","이순신");
+  model.addAttribute("nickname","강감찬");
+  return "goodbye";
+  // templates/greetings.mustache
+ }
+
 
  @GetMapping("/hello2")
  @ResponseBody
