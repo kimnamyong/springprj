@@ -1,0 +1,199 @@
+스프링 14일차
+
+//스프링관련용어
+
+DI(의존성주입)
+Object Mapper(ORM)
+AOP
+영속성컨텍스트
+엔티티(Entity)와 DTO
+서비스와 트랜잭션과 롤백
+컨트롤러와 서비스와 리파지토리
+맵퍼와 리파지토리
+mybatis와 JPA
+jsp/mustache/thymeleaf
+ViewResolver
+디스패쳐
+Data Source
+RestController와 Controller
+ResponseBody/RequestBody
+RequestParamer
+PathVariable
+인터셉터와 세션
+연관관계의 주인 mapped by
+영속성컨텍스트->dirty 체킹
+@Transactional
+Optional
+spring security
+------------------------
+48번게시판
+spring security
+-------------------------
+
+3.2.5
+///////// 프로젝트
+게시판-mustach
+블로그-jsp
+쇼핑몰-thymleaf
+게시판-thymleaf
+/////////
+
+spring security 인증처리과정
+이미지검색
+
+추상화
+
+인증, 인가
+
+고전적인 로그인방식
+session
+
+HttpSession session
+
+Authentication -인증
+Authorities 권한
+   admin/user
+
+SecurityContextHolder
+UserDetailsService
+UserDetails
+------------------------
+SecurityConfig.java
+
+보안
+
+jwt인증, outh2인증
+csrf.disable()
+
+Spring 6
+Spring boot 3
+
+3.2.5
+
+UserDetails 
+
+SimpleGrantedAuthority
+
+UserDetailsService 
+
+/mail
+이메일인증
+비밀번호찾기
+임시비번보내기
+주소검색
+/////////////////////////////
+bbs1.sql
+49번게시판 로그인과회원가입
+50번 사용자 목록관리
+51번 사용자 수정 삭제
+---------------------------
+스프링예제->24
+테스트코드작성하기 2
+
+JUNIT
+Mockito
+
+shop
+-> lombok
+thymeleaf
+jpa
+web
+mysql
+dev
+
+
+mysql ->
+shop -> db생성
+
+application.yml
+
+create -> update
+
+엔티티 설계하기
+
+constant
+entity
+
+@Query(value="select * from user",nativeQuery=true)
+void find();
+
+JPQL
+
+@Transactional
+
+변경감지-> dirty checking
+
+판매중,품절
+
+
+H2DB 메모리형 데이터베이스
+재부팅하면 초기화
+교육용
+
+ItemRepository
+
+Integer
+Long
+
+JUnit5
+
+
+itemRepository.save()의
+반환값이 무엇인지 찾아보자.
+
+쿼리메소드 테스트하기
+58번게시판
+
+JQPL
+Querydsl test 
+Querydsl 설정하기
+
+SQL
+like '%김%'
+
+security 
+Ant 패턴
+/**/
+
+영속화
+JPA
+Java Persistence API
+
+컨텍스트
+
+추상화
+
+.filter(조건-람다식)
+.collect()
+
+
+BooleanBuilder
+StringUtils
+
+61번게시판
+
+JUNIT 테스트 구현
+
+
+AOP 
+AOP(Aspect-Oriented Programming)
+관점분리모듈화 
+
+
+assertEquals("a", studentService.hasErrors(student, bindingResult);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

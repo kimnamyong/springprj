@@ -181,6 +181,7 @@ Non-repeatable Reads 문제 발생
 생성자주입
 빈설정 
 
+application.yml
 
 
 
