@@ -33,9 +33,47 @@ public class ArticleApiController {
 
  // POST
  @PostMapping("/api/articles")
- public Article create(@RequestBody ArticleForm dto) {
+ public ResponseEntity  create(@RequestBody ArticleForm dto) {
   Article article = dto.toEntity();
-  return articleRepository.save(article);
+  Article saved=articleRepository.save(article);
+   return ResponseEntity.status(HttpStatus.OK).body(saved);
+        // 200
  }
 
-}
+ @PatchMapping("/api/articles/{id}")
+ public ResponseEntity<Article> update(@PathVariable Long id, @RequestBody ArticleForm dto){
+    Article article= dto.toEntity(); // 수정데이터보관
+
+    Article target= articleRepository.findById(id).orElse(null);
+
+    if(target == null || !id.equals(article.getId())){
+     ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
+     //ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+    }
+
+     target.patch(article);  // 엔티티 데이터 수정완료
+     Article  updated  = articleRepository.save(target);
+    // target을 article로 저장하면  post 요청이 된다(새글로 등록)
+
+    return ResponseEntity.status(HttpStatus.OK).body(updated);
+    // 상태코드와 응답본문을 클라이언트에게 전달
+ }
+
+ // DELETE
+ @DeleteMapping("/api/articles/{id}")
+ public ResponseEntity<Article> update(@PathVariable Long id){
+
+  Article target= articleRepository.findById(id).orElse(null);
+  if(target == null){
+   ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
+  }
+  articleRepository.delete(target);
+
+  return ResponseEntity.status(HttpStatus.OK).build();
+  // 200 OK 응답신호를 생성하고 본문을 갖지않는 경우에 build만 붙여준다.
+
+ }
+
+
+
+}  // end

@@ -154,16 +154,25 @@ Optional 객체
 
 링크와 리다이렉트
 
+수정페이지
+
+수정폼은 
+생성폼 복사
 
 
+create sequence MEMBER_SEQ start with 1 increment by 1
 
 
+18장 19장
 
 
+ResponseEntity
+Body 데이터
+
+api-> ArticleApiController.java
 
 
-
-
+Talend
 
 
 

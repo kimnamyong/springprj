@@ -1,0 +1,101 @@
+스프링 16일차
+
+//스프링관련용어
+
+DI(의존성주입)
+Object Mapper(ORM)
+AOP
+영속성컨텍스트
+엔티티(Entity)와 DTO
+서비스와 트랜잭션과 롤백
+컨트롤러와 서비스와 리파지토리
+맵퍼와 리파지토리
+mybatis와 JPA
+jsp/mustache/thymeleaf
+ViewResolver
+디스패쳐
+Data Source
+RestController와 Controller
+ResponseBody/RequestBody
+RequestParamer
+PathVariable
+인터셉터와 세션
+연관관계의 주인 mapped by
+영속성컨텍스트->dirty 체킹
+@Transactional
+Optional
+spring security
+------------------------
+3.2.5
+///////// 프로젝트
+board(게시판)-mustach
+블로그-jsp
+쇼핑몰-thymleaf
+게시판-thymleaf
+/////////
+board(게시판)-mustach
+
+backend->스프링(Mustache)
+
+
+ResponseEntity
+Body 데이터
+
+api-> ArticleApiController.java
+
+
+Talend
+
+스프링(머스타치)->19강
+@RequestBody -> JSON데이터받기
+{
+  "title":"happy day",
+  "content":"welcome MY Home"
+}
+
+
+var title=$("#title").val()
+var content= $("#content").val()
+
+$.ajax({
+   url: "/api/articles"
+  method:"post",
+  data: {
+    title, content
+  },
+  success:function(data){
+   if(data=="수정OK")
+     alert("수정완료")
+  }
+}
+
+HttpStatusCode
+ 100/200/300/400/500
+
+get - 전체조회
+get - 상세조회
+post - 올리기, 생성
+delete - 삭제
+patch - 부분수정
+put - 전체수정
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
