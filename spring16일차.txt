@@ -80,6 +80,29 @@ patch - 부분수정
 put - 전체수정
 
 
+1,0, -1
+
+NOT_FOUND
+OK
+BAD_REQUEST
+
+20장
+서비스계층과 트랜잭션
+
+service->ArticleService
+----------------------
+controller
+service
+repository
+-----------------------
+
+
+
+
+
+
+
+
 
 
 
