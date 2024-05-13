@@ -92,12 +92,105 @@ BAD_REQUEST
 service->ArticleService
 ----------------------
 controller
+  -dto
 service
+  -entity
 repository
 -----------------------
+controller에서는
+서비스에서 처리한 데이터
+와 응답신호 만 보내준다.
+
+service에서는
+dto를 엔티티로 변환하고
+레파지토리에서 저장한 결과
+를 컨트롤러에 보내준다.
+
+http://localhost:8088/api/articles/11
+
+{
+  "id":11,  
+  "title":"점심시간2222",
+  "content":"쉬는 시간입니다"
+}
+
+{ 
+ "id":16,
+ "title":"오늘은 왠지..",
+ "content":"치킨을 먹고 싶어라..!"
+}
+
+http://localhost:8084/api/articles/16
+
+트랜잭션
+@Transactional
+
+dtos
 
 
+[
+  { 
+ "title":"시간예약",
+ "content":"10시"
+  },
+  { 
+ "title":"테이블 지정",
+ "content":"11시"
+  },
+  { 
+ "title":"메뉴선택",
+ "content":"12시"
+  }  
+]
 
+
+21강 테스트코드 작성하기
+
+
+update 성공
+update 실패
+
+delete 성공
+delete 실패
+
+22강 댓글엔티티와 관계
+@Query 테스트
+Comment
+Article
+
+entity->Comment 클래스
+
+repository
+
+${파라미터}
+:파라미터
+
+@DataJpaTest
+H2데이터베이스
+메모리형 DB 
+
+25강 댓글목록 뷰만들기
+
+templates->
+articles->show.mustache
+
+24번 게시판
+23강
+댓글서비스와 컨트롤러
+
+api->CommentApiController.java
+
+service->CommentService.java
+
+dto->CommentDto.java
+
+
+new CommentDto(id,articleid,nickname, body);
+
+
+client-dto->controller
+->dto->service
+->entity->repositiory
 
 
 
