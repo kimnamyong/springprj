@@ -1,3 +1,11 @@
+<hr>
+<form class="d-flex flex-row m-3" action="/articles/comments" method="get">
+  <label class="form-label m-1">닉네임</label>
+  <input type="text" class="form-control m-1 w-25" id="comment-nickname" name="nickname">
+  <button type="submit" class="btn btn-outline-primary m-1" id="nickname-btn">검색</button>
+</form>
+<hr>
+
 <div id="comments-list">
   {{#commentDtos}}
     <div class="card m-2" id="comments-{{id}}">

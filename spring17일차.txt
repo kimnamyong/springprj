@@ -63,16 +63,53 @@ CommetService.comments()
 
 _new.mustache
 
+26강 댓글수정
+
+모달창->데이터바인딩
+
+27강 댓글 삭제
+28강 게시글에 페이징
+추가하기
+-35번게시판
+
+// 추가작업
+내림차순정렬하기
+페이지네이션 active활성화
+하기
+
+28강 밑에
+
+29강
+기능추가
+nickname 조회하기
+
+33번게시판
+
+@Data
+
+@MapedBy
+누가누가 댓글을 달았나?
 
 
+/articles/comments
+
+/api/articles/comments
+
+29강-기능추가
+
+form 방식
+get-post
+
+patch, delete->post
 
 
+요즘 트랜드
+싱글페이지 어플리케이션
+SPA
 
-
-
-
-
-
+ajax요청 추가하자
+/api/articles/comments
+CommentApiController
 
 
 

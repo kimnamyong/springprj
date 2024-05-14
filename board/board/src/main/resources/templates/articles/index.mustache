@@ -30,7 +30,8 @@
     {{/preStatus}}
 
     {{#pageNums}}
-      <li class="page-item" aria-current="page"><a class="page-link active" href="/articles?pageNum={{.}}">{{.}}</a></li>
+      <li class="page-item" aria-current="page">
+        <a class="page-link" href="/articles?pageNum={{.}}">{{.}}</a></li>
     {{/pageNums}}
 
     {{#nextStatus}}
@@ -43,5 +44,27 @@
 
 </div>
 
+<!--   http://localhost:8088/articles?pageNum=2   -->
+<script>
+
+    var pageItem=document.querySelectorAll('[aria-current="page"]');
+
+    const queryString = window.location.search;
+    const params = {};
+
+   queryString.substring(1).split('&').forEach(param => {
+      const [key, value] = param.split('=');
+      params[key] = value;
+  });
+
+  console.log(params); // { pageNum : 1 }
+
+  if(params.pageNum != undefined){
+       pageItem[params.pageNum].classList.add("active");
+  }else{
+       location.href="/articles?pageNum=1";
+  }
+
+</script>
 
 {{>layouts/footer}}
