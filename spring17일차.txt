@@ -1,0 +1,92 @@
+스프링 17일차
+
+//스프링관련용어
+
+DI(의존성주입)
+Object Mapper(ORM)
+AOP
+영속성컨텍스트
+엔티티(Entity)와 DTO
+서비스와 트랜잭션과 롤백
+컨트롤러와 서비스와 리파지토리
+맵퍼와 리파지토리
+mybatis와 JPA
+jsp/mustache/thymeleaf
+ViewResolver
+디스패쳐
+Data Source
+RestController와 Controller
+ResponseBody/RequestBody
+RequestParamer
+PathVariable
+인터셉터와 세션
+연관관계의 주인 mapped by
+영속성컨텍스트->dirty 체킹
+@Transactional
+Optional
+spring security
+------------------------
+3.2.5
+///////// 프로젝트
+board(게시판)-mustach
+블로그-jsp
+쇼핑몰-thymleaf
+게시판-thymleaf
+/////////
+board(게시판)-mustach
+
+backend->스프링(Mustache)
+
+
+댓글조회
+댓글생성
+댓글수정
+
+CommentService
+
+{
+"id":1,
+  "nickname":"LEE",
+  "body":"어벤져스",
+  "article_id":4
+}
+
+dirty checking
+
+23강 - 끝
+24강 뷰만들기
+
+CommetService.comments()
+
+25강-프런트엔드개발
+
+
+_new.mustache
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -12,7 +12,6 @@
     {{#articleList}}
       <tr>
         <th>{{id}}</th>
-<!--        제목에 링크걸기-->
         <td><a href="/articles/{{id}}">{{title}}</a></td>
         <td>{{content}}</td>
       </tr>
@@ -22,10 +21,27 @@
   <a href="/articles/new" class="btn btn-primary"> 새글작성</a>
 </div>
 
-{{#msg}}
-  {{msg}}
-  {{/msg}}
+<!-- 페이징 처리 UI를 구현 -->
+<div class="container mx-auto mt-2 text-center">
+<nav aria-label="Page navigation example m-3">
+  <ul class="pagination">
+    {{#preStatus}}
+      <li class="page-item"><a class="page-link" href="/articles?pageNum={{preVious}}">Previous</a> </li>
+    {{/preStatus}}
 
+    {{#pageNums}}
+      <li class="page-item" aria-current="page"><a class="page-link active" href="/articles?pageNum={{.}}">{{.}}</a></li>
+    {{/pageNums}}
+
+    {{#nextStatus}}
+      <li class="page-item"><a class="page-link" href="/articles?pageNum={{next}}">Next</a> </li>
+    {{/nextStatus}}
+  </ul>
+</nav>
+{{pageNum}} Page
+</div>
+
+</div>
 
 
 {{>layouts/footer}}

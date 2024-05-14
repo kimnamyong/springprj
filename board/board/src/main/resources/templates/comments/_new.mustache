@@ -5,18 +5,18 @@
       <!-- 닉네임 입력 -->
       <div class="mb-3">
         <label class="form-label">닉네임</label>
-        <input type="text" class="form-control form-control-sm" id="new-comment-nickname">
+        <input type="text" class="form-control form-control-sm" id="new-comment-nickname" required>
       </div>
 
       <!-- 댓글 본문 입력 -->
       <div class="mb-3">
         <label class="form-label">댓글 내용</label>
-        <textarea type="text" class="form-control form-control-sm" rows="3" id="new-comment-body"></textarea>
+        <textarea type="text" class="form-control form-control-sm" rows="3" id="new-comment-body" required></textarea>
       </div>
 
       <!-- 히든 인풋 -->
       {{#article}}
-        <input type="hidden" id="new-comment-article-id" value="{{id}}">
+        <input type="text" id="new-comment-article-id" value="{{id}}" readonly>
       {{/article}}
 
       <!-- 전송 버튼 -->
@@ -24,3 +24,42 @@
     </form>
   </div>
 </div>
+
+<script>
+  {
+    // 댓글 생성 버튼 변수화
+    const commentCreateBtn = document.querySelector("#comment-create-btn");
+
+    // 댓글 클릭 이벤트 감지!
+    commentCreateBtn.addEventListener("click", function() {
+     if(document.querySelector("#new-comment-nickname").value==""){
+      alert("내용이 필요합니다")
+      return false;
+     }
+
+      // 새 댓글 객체 생성
+    const comment = {
+      nickname: document.querySelector("#new-comment-nickname").value,
+      body: document.querySelector("#new-comment-body").value,
+      article_id: document.querySelector("#new-comment-article-id").value
+    };
+
+    const url = "/api/articles/" + comment.article_id + "/comments";
+    fetch(url, {
+      method: "post",        // POST 요청
+      body: JSON.stringify(comment),  // comment JS 객체를 JSON으로 변환
+      headers: {
+        "Content-Type": "application/json"
+      }
+     }).then(response => {
+      // http 응답 코드에 따른 메시지 출력
+      console.log(response);
+      const msg = (response.ok) ? "댓글이 등록되었습니다." : "댓글 등록 실패..!";
+      alert(msg);
+      // 현재 페이지 새로고침
+      window.location.reload();
+    });
+
+    });
+  }
+</script>
