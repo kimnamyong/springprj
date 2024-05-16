@@ -29,9 +29,9 @@ spring security
 3.2.5
 ///////// 프로젝트
 board(게시판)-mustach
-블로그-jsp
-쇼핑몰-thymleaf
-게시판-thymleaf
+blog(블로그)-jsp
+쇼핑몰-thymeleaf
+게시판-thymeleaf
 프로젝트 시험문제
 /////////
 board(게시판)-mustach
@@ -75,6 +75,35 @@ ObjectMapper
 model.addAttribute()
 
 test-> 
+
+API Test 예제
+
+repository->UserRepository
+
+36번게시판
+dto->UserForm.java
+entoty->User.java
+enum->RoleType
+
+@RequestParam
+/api/save?name=lee&password=123&email=adm@mail
+
+@RequestBody
+/api/save
+{
+  "name":"lee", "password":"123","email":"aaa@dam.net"
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
 

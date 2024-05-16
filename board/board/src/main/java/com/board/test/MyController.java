@@ -1,6 +1,11 @@
 package com.board.test;
 
+import com.board.dto.MyData;
+import com.board.dto.UserForm;
+import com.board.entity.UserEntity;
+import com.board.repository.UserRepository;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -63,4 +68,63 @@ public class MyController {
   return ResponseEntity.status(HttpStatus.OK).body(person);
  }
 
+ @Autowired
+ private UserRepository userRepository;
+
+ @PostMapping("/api/save")
+ public ResponseEntity saveUser(@RequestBody UserEntity user) {
+  return ResponseEntity.status(HttpStatus.OK).body("User saved:"+user);
+  //return "User saved: " + user ;
+ }
+
+ @GetMapping("/data/{id}")
+ public ResponseEntity<String> getData(@PathVariable Long id) {
+  if (id == 1L) {
+   return ResponseEntity.ok("Data with ID 1 found");
+  } else {
+   return ResponseEntity.notFound().build();
+  }
+  //return ResponseEntity.status(HttpStatus.OK);
+ }
+
+ @PostMapping("/api/create")
+ public ResponseEntity<MyData> create(@RequestBody MyData myData) {
+  log.info("myData : " + myData);
+  //return ResponseEntity.ok("Data created successfully");
+  return ResponseEntity.ok(myData);
+ }
+
+
+ @PostMapping("/api/processForm")
+ public String process(@RequestBody UserForm user,RedirectAttributes redirectAttributes) {
+
+  redirectAttributes.addFlashAttribute("userTest",user);
+
+  log.info("user:" + user);
+  return "redirect:/api/processForm";
+ }
+
+ @GetMapping("/api/processForm")
+ public ResponseEntity<String> processForm(@ModelAttribute("userTest") UserForm userTest) {
+  log.info("userTest:" + userTest.toString());
+  String result= userTest.getUsername()+" " + userTest.getPassword();
+  log.info("result:" + result);
+  return ResponseEntity.status(HttpStatus.OK).body(result);
+ }
+
+ @GetMapping("/usersTest/{id}")
+ public ResponseEntity<UserEntity> getUser(@PathVariable Long id) {
+  // id에 해당하는 사용자를 데이터베이스에서 조회하고 user 변수에 저장하는 로직을 가정합니다.
+  UserEntity user = userRepository.findById(id).orElse(null);
+
+  if (user != null) {
+   // 사용자가 존재하는 경우 200 OK 상태 코드와 사용자 객체를 응답으로 반환
+   return new ResponseEntity<>(user, HttpStatus.OK);
+  } else {
+   // 사용자가 존재하지 않는 경우 404 Not Found 상태 코드를 반환
+   return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+  }
+ }
 }
+
+
