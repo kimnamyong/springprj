@@ -8,23 +8,46 @@
   </tr>
   </thead>
   <tbody>
-    <tr>
-      <th>{{article.id}}</th>
-      <td>{{article.title}}</td>
-      <td>{{article.content}}</td>
-    </tr>
+  <tr>
+    <th>{{article.id}}</th>
+    <td>{{article.title}}</td>
+    <td>{{article.content}}</td>
+  </tr>
   </tbody>
 </table>
 <!--수정링크추가-->
 <a href="/articles/{{article.id}}/edit" class="btn btn-success">수정</a>
 <!--삭제링크추가-->
 <a href="/articles/{{article.id}}/delete"
-   class="btn btn-danger" onclick="return delOk();">삭제</a>
+   class="btn btn-danger">삭제</a>
 
 <a href="/articles" class="btn btn-success">목록보기</a>
 
 {{>comments/_comments}}
 
 
+<script>
+
+   // 답글이 있는 게시글은 삭제불가
+   var btnDanger=document.getElementsByClassName("btn-danger")[0];
+   btnDanger.onclick=function(){
+     var cardHeader=document.getElementsByClassName("card-header")[0];
+     if(cardHeader.innerHTML=""){
+       alert("답글이 있는 게시글은 삭제불가합니다");
+       return false;
+     }
+    }
+   }
+
+</script>
 {{>layouts/footer}}
+
+
+
+
+
+
+
+
+
 

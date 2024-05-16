@@ -5,6 +5,7 @@ import com.board.entity.Article;
 import com.board.entity.Comment;
 import com.board.repository.ArticleRepository;
 import com.board.repository.CommentRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -13,6 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Slf4j
 @Service
 public class CommentService {
 
@@ -42,6 +44,8 @@ public class CommentService {
 
  @Transactional
  public CommentDto create(Long articleId, CommentDto dto) {
+  log.info("입력값 => {}", articleId);
+  log.info("입력값 => {}", dto);
 
       Article article=  articleRepository.findById(articleId).orElseThrow(()->new IllegalArgumentException("댓글생성실패! 대상게시글이 없습니다."));
 
@@ -50,9 +54,10 @@ public class CommentService {
       Comment created= commentRepository.save(comment);
 
       // 엔티티-> dto로 변경
-      CommentDto createDto=CommentDto.createCommentDto(created);
-      return createDto;
+      CommentDto createdDto=CommentDto.createCommentDto(created);
 
+  log.info("반환값 => {}", createdDto);
+      return createdDto;
  }
 
  @Transactional
@@ -89,7 +94,7 @@ public class CommentService {
   return comments;
  }
 
-// api
+// api   nickname 조회
  public List<CommentDto> apiNickNameComments(String nickname) {
 
   List<Comment> comments=commentRepository.findByNickname(nickname);

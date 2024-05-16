@@ -74,11 +74,19 @@ public class CommentApiController {
  @GetMapping("/api/articles/comments")
  public ResponseEntity nicknameComments(@RequestParam String nickname, Model model) {
 
+  long start=System.currentTimeMillis();
+
   // 서비스단에 위임
   List<CommentDto> commentDtos=commentService.apiNickNameComments(nickname);
 
+  long finish=System.currentTimeMillis();
+  long timeMs=finish-start;
+
+  log.info("닉네임조회 시간 ajax: " + timeMs +"ms");
+
   return ResponseEntity.status(HttpStatus.OK).body(commentDtos);
  }
+
 
 }
 

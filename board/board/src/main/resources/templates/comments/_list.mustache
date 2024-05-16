@@ -4,7 +4,30 @@
   <input type="text" class="form-control m-1 w-25" id="comment-nickname" name="nickname">
   <button type="submit" class="btn btn-outline-primary m-1" id="nickname-btn">검색</button>
 </form>
+<button type="submit" class="btn btn-outline-primary m-1" id="nickname-btn2">AJX검색</button>
 <hr>
+<div id="out"></div>
+
+<script>
+  $("#nickname-btn2").on("click",function(){
+      var nickname=$("#comment-nickname").val();
+
+      $.ajax({
+        url:"/api/articles/comments?nickname="+nickname,
+        method:"GET",
+        success:function(data){
+        var str=" ID : 별명 :  본문내용 ";
+          $(data).each(function(i,d){
+            str +=`<p> ${i+1} : ${d.nickname} : ${d.body} </p>`;
+          });
+          //$('#out').append(str);
+          $('#out').html(str);
+        }
+      });
+
+  });
+</script>
+
 
 <div id="comments-list">
   {{#commentDtos}}
