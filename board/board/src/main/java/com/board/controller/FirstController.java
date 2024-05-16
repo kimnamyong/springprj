@@ -10,6 +10,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class FirstController {
 
+ @GetMapping({"/",""})
+ public String index(){
+  return "board/new";
+ }
+
+
  @GetMapping("/hi")
  public String niceTo(Model model){
   model.addAttribute("username","이순신");

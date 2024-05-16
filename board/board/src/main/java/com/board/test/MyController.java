@@ -119,10 +119,10 @@ public class MyController {
 
   if (user != null) {
    // 사용자가 존재하는 경우 200 OK 상태 코드와 사용자 객체를 응답으로 반환
-   return new ResponseEntity<>(user, HttpStatus.OK);
+   return new ResponseEntity(user, HttpStatus.OK);
   } else {
    // 사용자가 존재하지 않는 경우 404 Not Found 상태 코드를 반환
-   return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+   return new ResponseEntity(HttpStatus.NOT_FOUND);
   }
  }
 }
