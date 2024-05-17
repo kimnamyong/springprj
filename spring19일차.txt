@@ -1,4 +1,4 @@
-스프링 18일차
+스프링 19일차
 
 //스프링관련용어
 
@@ -13,7 +13,7 @@ AOP
 mybatis와 JPA
 jsp/mustache/thymeleaf
 ViewResolver
-디스패쳐
+디스패쳐 dispatcher
 Data Source
 RestController와 Controller
 ResponseBody/RequestBody
@@ -26,79 +26,125 @@ PathVariable
 Optional
 spring security
 ------------------------
-3.2.5
 ///////// 프로젝트
-board(게시판)-mustach
+board(게시판)-mustache
 blog(블로그)-jsp
 쇼핑몰-thymeleaf
 게시판-thymeleaf
-프로젝트 시험문제
+프로젝트 시험문제-
 /////////
-board(게시판)-mustach
 ---------------------------
-AOP
+AOP *
 Object Mapper
+API test
+Summer Note *
+---------------------------
+blog(블로그)-jsp
+user, board, reply
+Summer Note -> 이미지올리기
 
-서머노트 라이브러리
-User 파트
--------------------------
-34번게시판
-AOP
+34, 38
 
-기능파트+부가적서비스
-
-횡단관심사
-
-횡단 관심사(Cross-cutting concern)
-
-로그, 시간체크
-
-입력값
-
-출력값
-
-// CommentApiController.java
-
-aop -> TimeTraceApp.java
-
-@Aspect는 Aspect-Oriented Programming(관점 지향 프로그래밍)에서 사용되는 어노테이션입니다.
-
-38번게시판
-ObjectMapper
-StopWatch
-rediectAttribute
-Api Test
-
-ObjectMapper
-  - Jackson 라이브러리
-
-model.addAttribute()
-
-test-> 
-
-API Test 예제
-
-repository->UserRepository
-
-36번게시판
-dto->UserForm.java
-entoty->User.java
-enum->RoleType
-
-@RequestParam
-/api/save?name=lee&password=123&email=adm@mail
-
-@RequestBody
-/api/save
-{
-  "name":"lee", "password":"123","email":"aaa@dam.net"
-}
+Spring(JSP)
+->5번게시판
 
 
-1,0,-1
+start.spring.io
+
+mysql =>blog 
+
+package
+ -> controller
+ -> repository
+ -> model
+ -> service
+ -> aop
+
+src/main/
+ webapp/WEB-INF/views/hello.jsp
+
+TestController.java
+Aspect-Oriented Programming
+
+횡단관심사 Cross-cutting concern
+
+메인서비스
+부가서비스- 시간측정+로그기록
+
+84번게시판
 
 
+DebuggingAspect
 
+프로젝트 빌드하고 실행하기
+4번게시판
+
+target\blog-0.0.1-SNAPSHOT.war
+
+
+윈도우키+R -> cmd
+
+java -jar blog-0.0.1-SNAPSHOT.war
+
+192.168.0.210:8088/hello
+
+d: 
+dir
+cd kny
+cd sp -> tab
+cd blog
+cd t -> tab
+
+6번게시판
+
+model
+  ->Board
+  ->Reply
+  ->RoleType -> enum
+  ->User
+
+package
+ -> controller
+ -> repository
+ -> model
+ -> service
+ -> aop
+ -> dto
+
+ UserForm.java
+
+UserRepository
+
+
+7번
+Board.java
+
+8번 
+Reply.java
+
+9번게시판
+연관관계의 주인
+mappedBy
+
+관계주인->board
+연관주인->reply
+
+6장 JSON 테스트
+
+package-> test 
+->MyData
+
+static->js
+->board.js
+->join.js
+->user.js
+
+
+views-> join.jsp
+dto->ResponseDto
+api -> TestApiController.java
+
+아이디중복조회
 
 
 
