@@ -9,7 +9,7 @@
 
 </head>
 <body>
-
+{{>layouts/header}}
 <div class="container">
   <form class="container" method="post">
     <div class="mb-3">
@@ -44,16 +44,15 @@
        let _this=this;
          $('#btn-save').on('click',()=>{
           _this.save();
-       });
+          });
   },
-
   save:function(){
        let data={
           username:$("#name").val(),
           title: $('#title').val(),
           content: $('#content').val()
        };
-  console.log(data);
+       console.log(data);
      $.ajax({
         type:"POST",
          url:'/boards/create',
@@ -62,15 +61,14 @@
          dataType:"json"
       }).done(function(resp){
           console.log(resp);
-         alert("글쓰기기가 완료되었습니다.");
+         alert("글쓰기가 완료되었습니다.");
           location.href="/board/"+resp.id;
      }).fail(function(error){
           console.log(JSON.stringify(error));
         });
       }
-      }
-         index.init();
-
-</script>
+    }
+    index.init();
+ </script>
 </body>
 </html>

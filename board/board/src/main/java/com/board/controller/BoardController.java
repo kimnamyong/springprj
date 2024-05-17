@@ -35,7 +35,7 @@ public class BoardController {
 
  @GetMapping("/boards/new")
  public String newArticleForm() {
-  return "boards/new";
+  return "board/new";
  }
 
 
@@ -43,7 +43,7 @@ public class BoardController {
  public String index(Model model){
    List<BoardEntity> boardList= boardRepository.findAll();
 
-   model.addAttribute("boards",boardList);
+   model.addAttribute("boardList",boardList);
   return "board/index";
  }
 

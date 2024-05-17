@@ -1,0 +1,112 @@
+스프링 18일차
+
+//스프링관련용어
+
+DI(의존성주입)
+Object Mapper(ORM)
+AOP
+영속성컨텍스트
+엔티티(Entity)와 DTO
+서비스와 트랜잭션과 롤백
+컨트롤러와 서비스와 리파지토리
+맵퍼와 리파지토리
+mybatis와 JPA
+jsp/mustache/thymeleaf
+ViewResolver
+디스패쳐
+Data Source
+RestController와 Controller
+ResponseBody/RequestBody
+RequestParamer
+PathVariable
+인터셉터와 세션
+연관관계의 주인 mapped by
+영속성컨텍스트->dirty 체킹
+@Transactional
+Optional
+spring security
+------------------------
+3.2.5
+///////// 프로젝트
+board(게시판)-mustach
+blog(블로그)-jsp
+쇼핑몰-thymeleaf
+게시판-thymeleaf
+프로젝트 시험문제
+/////////
+board(게시판)-mustach
+---------------------------
+AOP
+Object Mapper
+
+서머노트 라이브러리
+User 파트
+-------------------------
+34번게시판
+AOP
+
+기능파트+부가적서비스
+
+횡단관심사
+
+횡단 관심사(Cross-cutting concern)
+
+로그, 시간체크
+
+입력값
+
+출력값
+
+// CommentApiController.java
+
+aop -> TimeTraceApp.java
+
+@Aspect는 Aspect-Oriented Programming(관점 지향 프로그래밍)에서 사용되는 어노테이션입니다.
+
+38번게시판
+ObjectMapper
+StopWatch
+rediectAttribute
+Api Test
+
+ObjectMapper
+  - Jackson 라이브러리
+
+model.addAttribute()
+
+test-> 
+
+API Test 예제
+
+repository->UserRepository
+
+36번게시판
+dto->UserForm.java
+entoty->User.java
+enum->RoleType
+
+@RequestParam
+/api/save?name=lee&password=123&email=adm@mail
+
+@RequestBody
+/api/save
+{
+  "name":"lee", "password":"123","email":"aaa@dam.net"
+}
+
+
+1,0,-1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
