@@ -20,44 +20,42 @@ public class TestController {
  @Autowired // 의존성 주입(DI)
  private UserRepository userRepository;
 
- @GetMapping("/hello")
- public String test(Model model){
-  model.addAttribute("msg","누구신가요??");
-
-  return "hello";
- }
-
- @PostMapping("/dummy/join")
- public String join(User user){
-
-//  User user = form.toEntity();
-  user.setRole(RoleType.ADMIN);
-  User saved = userRepository.save(user);
-
-  return "회원가입이 완료되었습니다.";
- }
-
- @PostMapping("/user/join")
- public ResponseEntity<MyData> join(@RequestBody String user){
-
-  Class user1=user.getClass();  // class명 가져오기
-
-  MyData data = new MyData();
-  // data.setMsg("아이디중복");
-   data.setMsg("회원가입성공");
-
-  String msg=data.getMsg();
-  return ResponseEntity.status(HttpStatus.OK).body(data);
- }
-
-
-
-
- @GetMapping("user/join")
- public String join(){
-  return "join";
- }
-
+// @GetMapping("/hello")
+// public String test(Model model){
+//  model.addAttribute("msg","누구신가요??");
+//
+//  return "hello";
+// }
+//
+// @PostMapping("/dummy/join")
+// public String join(User user){
+//
+////  User user = form.toEntity();
+//  user.setRole(RoleType.ADMIN);
+//  User saved = userRepository.save(user);
+//
+//  return "회원가입이 완료되었습니다.";
+// }
+//
+// @PostMapping("/user/join")
+// public ResponseEntity<MyData> join(@RequestBody String user){
+//
+//  Class user1=user.getClass();  // class명 가져오기
+//
+//  MyData data = new MyData();
+//
+//  String msg=data.getMsg();
+//  return ResponseEntity.status(HttpStatus.OK).body(data);
+// }
+//
+//
+//
+//
+// @GetMapping("user/join")
+// public String join(){
+//  return "join";
+// }
+//
 
 
 }

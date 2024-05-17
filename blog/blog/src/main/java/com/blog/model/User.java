@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.DynamicInsert;
 
 import java.sql.Timestamp;
 
@@ -15,7 +16,7 @@ import java.sql.Timestamp;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-//@DynamicInsert  insert시 null 인 필드를 제외시켜준다.
+//@DynamicInsert // insert시 null 인 필드를 제외시켜준다.
 public class User {
  @Id
  @GeneratedValue(strategy= GenerationType.IDENTITY)
@@ -38,4 +39,7 @@ public class User {
 
  @CreationTimestamp  // 시간이 자동 입력
  private Timestamp createDate;
+
+// public User(String username, String password, String email) {
+// }
 }

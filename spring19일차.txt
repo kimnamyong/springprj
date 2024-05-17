@@ -145,6 +145,53 @@ dto->ResponseDto
 api -> TestApiController.java
 
 아이디중복조회
+--------------------------
+7장 회원가입 테스트
+
+8장 id로 select 테스트
+---------------------------
+
+9장 전체 select 및
+paging 테스트
+
+UserController 
+
+11,12,
+update, delete 테스트
+
+13강 Exception 처리하기
+
+handler 패키지
+  GlobalExcepionHandler
+
+18게시판
+14장 메인화면 디자인
+BoardController.java
+index.jsp
+
+15장 로그인, 회원가입
+19번게시판
+
+layout->footer.jsp
+         -> header.jsp
+
+views->user     -> joinForm.jsp
+                     -> loginForm.jsp
+        ->board -> saveForm.jsp
+
+16장 user.js
+17장 ajax 요청하기 - user.js
+
+api->UserApiController.java
+
+18장 UserService.java
+
+20장 전통적인 로그인 방식 
+구현하기
+session 을 사용하기
+
+
+
 
 
 
