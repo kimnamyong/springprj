@@ -38,8 +38,9 @@ a{outline:0 !important; }
        </c:otherwise>
      </c:choose>
 
+<c:set var="page" value="${(boards.totalElements/3)}" />
+    <c:forEach begin="1" end="${page+((1-page%1))%1}" step="1" varStatus="number">
 
-    <c:forEach begin="1" end="${(boards.totalElements/3) + 1}" step="1" varStatus="number">
       <li class="page-item">
           <a class="page-link a"
           href="?page=${number.index-1}#pageNext">${number.index}</a>
