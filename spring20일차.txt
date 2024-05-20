@@ -101,6 +101,18 @@ round(parseInt())
 수정하기
 
 
+<a href="main.html#navi">
+id 가 navi로 위치한 책갈피가 있는 화면으로 이동
+
+
+<nav id="navi">
+
+</nav>
+
+아이디 중복여부검사하기
+회원정보수정
+댓글등록
+스프링 시큐리티
 
 
 
