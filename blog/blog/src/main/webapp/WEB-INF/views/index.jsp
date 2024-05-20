@@ -6,6 +6,8 @@ pageEncoding="UTF-8"%>
 <style>
 .card-body img{ width:100px !important; height:100px;}
 .active{ background:red !important; color:white !important;}
+a{outline:0 !important; }
+
 </style>
 <%@ include file="./layout/header.jsp" %>
 
@@ -32,14 +34,14 @@ pageEncoding="UTF-8"%>
            <li class="page-item disabled"><a class="page-link" href="?page=${boards.number-1}">Previous</a></li>
          </c:when>
        <c:otherwise>
-          <li class="page-item"><a class="page-link" href="?page=${boards.number-1}">Previous</a></li>
+          <li class="page-item"><a class="page-link" href="?page=${boards.number-1}#pagea">Previous</a></li>
        </c:otherwise>
      </c:choose>
 
     <c:forEach begin="0" end="${boards.totalPages / 3 + 1}" step="1" varStatus="number">
       <li class="page-item">
           <a class="page-link a"
-          href="?page=${number.index}#pagea" id="pagea">${number.index+1}</a>
+          href="?page=${number.index}#pageNext" onfocus="this.blur()">${number.index+1}</a>
        </li>
    </c:forEach>
    <c:choose>
@@ -48,7 +50,7 @@ pageEncoding="UTF-8"%>
        </c:when>
        <c:otherwise>
           <li class="page-item">
-             <a class="page-link" href="?page=${boards.number+1}">Next</a>
+             <a class="page-link" href="?page=${boards.number+1}#pagea" id="pageNext" >Next</a>
           </li>
         </c:otherwise>
        </c:choose>
@@ -73,6 +75,7 @@ var pageItem=document.querySelectorAll('.page-link.a');
 
   if(params.page != undefined){
      pageItem[params.page].classList.add("active");
+     pageItem[params.page].focus;
   }else{
    pageItem[0].classList.add("active");
      //location.href="?page=0";

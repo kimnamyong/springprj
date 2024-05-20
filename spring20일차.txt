@@ -93,6 +93,26 @@ boards.totalPages / 3 + 1
 
 board->detail.jsp
 
+2/3 -> 1 , 0
+반올림이나 정수로 바꾸는 함수
+사용
+round(parseInt())
+
+수정하기
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

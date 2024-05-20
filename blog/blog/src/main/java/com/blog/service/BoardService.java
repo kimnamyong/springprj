@@ -44,4 +44,10 @@ public class BoardService {
   //boardRepository.save(board);
   return board;
  }
+
+ @Transactional
+ public void 글삭제하기(int id) {
+  boardRepository.deleteById(id);
+  // void형임 optional이 아니다.
+ }
 }
