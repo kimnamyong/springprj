@@ -5,20 +5,21 @@
    <div class="container mt-3">
      <button class='btn btn-secondary' onclick="history.back()">돌아가기</button>
 
-     <button class='btn btn-warning' id="btn-update">수정</button>
-
     <c:if test="${board.user.id==principal.id}">
+     <a href="/board/${board.id}/updateForm"
+     class="btn btn-warning">수정</a>
        <button class='btn btn-danger' id="btn-delete">삭제</button>
     </c:if>
 
-     <div class="m-3">
+    <div class="m-3">
       글번호 : <span id="id"><i>${board.id}</i></span> |
       작성자 : <span><i>${board.user.username}</i></span>
-     </div>
-     <div class="m-3 form-group">
-       <label class="form-label">제목(Title)</label>
-       <h2> ${board.title}</h2>
-     </div>
+    </div>
+
+    <div class="m-3 form-group">
+      <label class="form-label">제목(Title)</label>
+      <h2> ${board.title}</h2>
+    </div>
 
   <hr>
      <div class="m-3 form-group">

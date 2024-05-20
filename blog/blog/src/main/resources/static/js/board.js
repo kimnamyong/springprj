@@ -9,7 +9,36 @@ let index={
            this.deleteById();
       });
 
+  // 수정하기
+   $('#btn-update').on('click',()=>{
+         this.update();
+    });
+
    },
+
+  // 수정하기
+  update:function(){
+      var id=$('#id').val();
+         let data={
+            title:$("#title").val(),
+           content:$("#content").val()
+      }
+
+    $.ajax({
+           type:"PUT",
+          url:'/api/board/'+id,
+          data:JSON.stringify(data),
+          contentType:"application/json; charset=utf-8",
+        dataType:"json"
+     }).done(function(resp){
+       alert("수정이 완료되었습니다.");
+         location.href="/";
+     }).fail(function(error){
+       alert(JSON.stringify(error));
+    });
+  },
+
+
    // 삭제하기
    deleteById:function(){
       var id=$('#id').text();

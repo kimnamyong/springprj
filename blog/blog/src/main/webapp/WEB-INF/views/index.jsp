@@ -38,12 +38,14 @@ a{outline:0 !important; }
        </c:otherwise>
      </c:choose>
 
-    <c:forEach begin="0" end="${boards.totalPages / 3 + 1}" step="1" varStatus="number">
+
+    <c:forEach begin="1" end="${(boards.totalElements/3) + 1}" step="1" varStatus="number">
       <li class="page-item">
           <a class="page-link a"
-          href="?page=${number.index}#pageNext" onfocus="this.blur()">${number.index+1}</a>
+          href="?page=${number.index-1}#pageNext">${number.index}</a>
        </li>
    </c:forEach>
+
    <c:choose>
        <c:when test="${boards.last}">
          <li class="page-item disabled"><a class="page-link" href="?page=${boards.number+1}">Next</a></li>

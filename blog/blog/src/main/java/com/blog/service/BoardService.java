@@ -50,4 +50,19 @@ public class BoardService {
   boardRepository.deleteById(id);
   // void형임 optional이 아니다.
  }
+
+ @Transactional
+ public void 글수정하기(int id, Board requestboard) {
+  // 영속화 시킨다.
+  Board board=boardRepository.findById(id).orElseThrow(()->{
+   return new IllegalArgumentException("글 찾기 실패: 아이디를 찾을 수 없습니다.");
+  }); // 영속화 완료
+
+  board.setTitle(requestboard.getTitle());
+  board.setContent(requestboard.getContent());
+
+  // 해당함수 종료시 (서비스가 종료될때) 트랜잭션이 종료된다. 이때 더티체킹-자동업데이트가된다.
+  // db flush된다. 즉 commit이 된다.
+
+ }
 }
