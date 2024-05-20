@@ -57,6 +57,37 @@ sessionScope.principal
 로그인정보없는 경우
 UI/UX처리하기
 
+loginForm.jsp
+
+user.js
+
+
+board->saveForm.jsp
+
+user.js를 복사해서
+board.js에 붙이기
+
+BoardApiController
+BoardService
+BoardRepository
+
+alter table board modify content LONGBLOB;
+alter table board modify content BLOB;
+
+
+글목록보기
+
+글목록 페이징 처리하기
+
+3개 씩
+3, 6, 9, 12개 ???? 
+
+
+
+
+
+
+
 
 
 
