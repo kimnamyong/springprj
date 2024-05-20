@@ -5,6 +5,7 @@ pageEncoding="UTF-8"%>
 
 <style>
 .card-body img{ width:100px !important; height:100px;}
+.active{ background:red !important; color:white !important;}
 </style>
 <%@ include file="./layout/header.jsp" %>
 
@@ -35,9 +36,10 @@ pageEncoding="UTF-8"%>
        </c:otherwise>
      </c:choose>
 
-    <c:forEach begin="0" end="${boards.totalElements / 3 - 1}" step="1" varStatus="number">
+    <c:forEach begin="0" end="${boards.totalPages / 3 + 1}" step="1" varStatus="number">
       <li class="page-item">
-          <a class="page-link" href="?page=${number.index}">${number.index+1}</a>
+          <a class="page-link a"
+          href="?page=${number.index}#pagea" id="pagea">${number.index+1}</a>
        </li>
    </c:forEach>
    <c:choose>
@@ -55,4 +57,26 @@ pageEncoding="UTF-8"%>
    <p>전체게시글 수 : ${boards.totalElements} </p>
    현재페이지 ${boards.number + 1} /총 페이지 : ${boards.totalPages}
 </div>
+
+<script>
+var pageItem=document.querySelectorAll('.page-link.a');
+
+    const queryString = window.location.search;
+    const params = {};
+
+    queryString.substring(1).split('&').forEach(param => {
+       const [key, value] = param.split('=');
+      params[key] = value;
+  });
+
+  console.log(params); // { page : 0 }
+
+  if(params.page != undefined){
+     pageItem[params.page].classList.add("active");
+  }else{
+   pageItem[0].classList.add("active");
+     //location.href="?page=0";
+  }
+
+</script>
 <%@ include file="./layout/footer.jsp" %>
