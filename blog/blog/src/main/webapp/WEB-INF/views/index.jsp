@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 pageEncoding="UTF-8"%>
 
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+
 <style>
 .card-body img{ width:100px !important; height:100px;}
 </style>
@@ -10,10 +12,13 @@ pageEncoding="UTF-8"%>
   <c:forEach var="board" items="${boards.content}">
       <div class="card m-2">
          <div class="card-body">
-         <h4 class="card-title">${board.title}</h4>
-         <p class="card-text">${board.content}</p>
-         <a href="#" class="btn btn-primary">상세보기</a>
-         <i style="font-size:14px"> 작성자 :${board.user.username} | 작성일 :${ board.createDate}</i>
+         <h4 class="card-title">글제목 : ${board.title}</h4>
+         <p class="card-text">글 내용: ${board.content}</p>
+         <a href="/board/${board.id}"
+         class="btn btn-primary">상세보기</a>
+         <i>조회수 : ${board.count}</i> |
+         <fmt:formatDate value="${board.createDate}" pattern="yyyy-MM-dd HH:mm:ss" var="formattedDate" />
+         <i style="font-size:14px"> 작성자:${board.user.username} | 작성일 :${formattedDate}</i>
        </div>
     </div>
   </c:forEach>

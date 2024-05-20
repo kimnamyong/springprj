@@ -81,11 +81,17 @@ alter table board modify content BLOB;
 
 3개 씩
 3, 6, 9, 12개 ???? 
+4
+0 ->시작
+5페이지 ?
 
 
+boards.totalPages / 3 + 1 
+로 해도 된다.
 
+상세페이지
 
-
+board->detail.jsp
 
 
 

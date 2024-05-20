@@ -33,4 +33,15 @@ public class BoardService {
  public Page<Board> 글목록(Pageable pageable) {
   return boardRepository.findAll(pageable);
  }
+
+ @Transactional
+ public Board 글상세보기(int id) {
+  Board board =boardRepository.findById(id).orElseThrow(()->{
+   return new IllegalArgumentException("글 상세보기 실패: 아이디를 찾을 수 없습니다.");
+  });
+  // 조회수 증가
+  board.setCount(board.getCount()+1);
+  //boardRepository.save(board);
+  return board;
+ }
 }
