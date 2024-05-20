@@ -30,15 +30,16 @@ public class UserApiController {
  }
 
  @PostMapping("api/user/login")
- public ResponseDto<Integer> login(@RequestBody User user, HttpSession session){
+ public ResponseDto<Integer> login(@RequestBody User user, HttpSession session) {
 
-  User principal=userService.로그인(user); // principal 접근주체
+  User principal = userService.로그인(user); //principal접근주체
 
-  if(principal !=null){
-   session.setAttribute("principal",principal);
+  if (principal != null) {
+   session.setAttribute("principal", principal);
+   return new ResponseDto<Integer>(HttpStatus.OK.value(), 1);
+  } else {
+   return new ResponseDto<Integer>(HttpStatus.NO_CONTENT.value(), 0);
   }
-
-  return new ResponseDto<Integer>(HttpStatus.OK.value(),1);
  }
 
-}
+}  //

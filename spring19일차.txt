@@ -190,6 +190,8 @@ api->UserApiController.java
 구현하기
 session 을 사용하기
 
+로그인->글쓰기,회원정보,로그아웃
+로그아웃->로그인, 회원가입
 
 
 
