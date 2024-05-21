@@ -1,0 +1,103 @@
+스프링 21일차
+
+//스프링관련용어
+DI(의존성주입)
+Object Mapper(ORM)
+AOP
+영속성컨텍스트
+엔티티(Entity)와 DTO
+서비스와 트랜잭션과 롤백
+컨트롤러와 서비스와 리파지토리
+맵퍼와 리파지토리
+mybatis와 JPA
+jsp/mustache/thymeleaf
+ViewResolver
+디스패쳐 dispatcher
+Data Source
+RestController와 Controller
+ResponseBody/RequestBody
+RequestParamer
+PathVariable
+인터셉터와 세션
+연관관계의 주인 mapped by
+영속성컨텍스트->dirty 체킹
+@Transactional
+Optional
+spring security
+------------------------
+///////// 프로젝트
+board(게시판)-mustache
+blog(블로그)-jsp
+쇼핑몰-thymeleaf
+게시판-thymeleaf
+프로젝트 시험문제-
+/////////
+---------------------------
+스프링(jsp)
+30번게시판 
+회원가입중복검사하기
+
+일관성, 무결성
+정합성
+
+버튼
+아이디중복여부검사
+
+
+27장-> 31번
+
+joinForm.jsp
+user.js
+
+mybatis
+#{username}
+
+jpa
+?1 
+?2
+
+//  header.jsp
+
+
+header.jsp ->회원탈퇴 버튼생성
+회원탈퇴 버튼 클릭
+
+userController.java
+
+userDelete.jsp
+아이디 / 비밀번호 검사 폼
+
+회원탈퇴완료 버튼클릭
+-> user.js로 ajax 요청
+
+UserApiController.java
+에서 id/아이디/비밀번호/
+를 받고 
+
+UserService.java에서 
+회원탈퇴 서비스처리
+  findByUserName와 password를 검사해서 
+있으면 탈퇴처리한다.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

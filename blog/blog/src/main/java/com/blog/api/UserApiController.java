@@ -7,9 +7,8 @@ import com.blog.service.UserService;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class UserApiController {
@@ -40,6 +39,34 @@ public class UserApiController {
   } else {
    return new ResponseDto<Integer>(HttpStatus.NO_CONTENT.value(), 0);
   }
+ }
+
+ @GetMapping("/api/user/{username}")
+ public ResponseEntity<String> check(@PathVariable String username){
+
+  int result=userService.중복확인(username);
+
+  if(result==1){  // null
+   return ResponseEntity.status(HttpStatus.OK).body("OK");
+  }else{
+   return ResponseEntity.status(HttpStatus.OK).body("NO");
+  }
+ }
+
+ @PutMapping("/user")
+ public ResponseDto<Integer> update(@RequestBody User user){
+  userService.회원수정(user);
+  return new ResponseDto<Integer>(HttpStatus.OK.value(), 1);
+ }
+
+ @DeleteMapping("/user/delete/{id}")
+ public ResponseDto<Integer> delete(@PathVariable Integer id, @RequestBody User user){
+    int result= userService.회원탈퇴(id,user);
+    if(result==1){
+     return new ResponseDto<Integer>(HttpStatus.OK.value(), 1);
+    }else{
+     return new ResponseDto<Integer>(HttpStatus.NO_CONTENT.value(), -1);
+    }
  }
 
 }  //

@@ -17,6 +17,9 @@ public class UserController {
  @Autowired // 의존성 주입(DI)
  private UserRepository userRepository;
 
+ @Autowired
+ HttpSession session;
+
  @GetMapping("/home")
  public String home(){
   return "users/join";
@@ -57,5 +60,22 @@ public class UserController {
   return "/user/loginForm";
  }
 
+  @GetMapping("/user/updateForm")
+  public String updateForm(Model model){
 
-}
+   model.addAttribute("principal",session.getAttribute("principal"));
+
+   return "user/updateForm";
+  }
+
+  // 회원탈퇴
+  @GetMapping("/user/deleteForm")
+  public String deleteForm(Model model){
+
+   model.addAttribute("principal",session.getAttribute("principal"));
+
+   return "user/deleteForm";
+  }
+
+
+}  // end
