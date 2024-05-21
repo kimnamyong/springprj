@@ -62,6 +62,7 @@
 
       <c:if test="${reply.user.id eq principal.id}">
          <button onClick="index.replyDelete(${board.id},${reply.id})" class="badge">삭제</button>
+         <button onClick="index.replyUpdate(${board.id},${reply.id})" class="badge">수정</button>
       </c:if>
 
         </div>

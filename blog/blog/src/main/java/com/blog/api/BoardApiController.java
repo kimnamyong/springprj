@@ -21,8 +21,12 @@ public class BoardApiController {
 
  @PostMapping("/api/board")
  public ResponseDto<Integer> save(@RequestBody Board board){
-  boardService.글쓰기(board);
-  return new ResponseDto<Integer>(HttpStatus.OK.value(),1);
+  Boolean isSession= boardService.글쓰기(board);
+  if(isSession==true){
+   return new ResponseDto<Integer>(HttpStatus.OK.value(),1);
+  }else{
+   return new ResponseDto<Integer>(HttpStatus.OK.value(),0);
+  }
  }
 
  @DeleteMapping("/api/board/{id}")
@@ -44,8 +48,16 @@ public class BoardApiController {
 
   boardService.댓글쓰기(user, boardId, reply);
   return new ResponseDto<Integer>(HttpStatus.OK.value(),1);
-
  }
+
+ // 댓글수정하기
+ @PutMapping("/api/board/{boardId}/reply/{replyId}")
+ public ResponseDto<Integer> replyUpdate(@PathVariable int replyId, @RequestBody Reply reply){
+  User user= (User) session.getAttribute("principal");
+  boardService.댓글수정(replyId, reply);
+  return new ResponseDto<Integer>(HttpStatus.OK.value(),1);
+ }
+
 
  @DeleteMapping("/api/board/{boardId}/reply/{replyId}")
  public ResponseDto<Integer> replyDelete(@PathVariable int replyId) {

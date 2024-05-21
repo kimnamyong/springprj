@@ -26,13 +26,16 @@ public class BoardService {
  private HttpSession session;
 
  @Transactional
- public void 글쓰기(Board board){ // title, content
-  User user= (User) session.getAttribute("principal");
-
-  board.setCount(0); // 조회수 0
-  board.setUser(user);
-
-  boardRepository.save(board);
+ public Boolean  글쓰기(Board board){ // title, content
+  if(session.getAttribute("principal") != null){
+   User user= (User) session.getAttribute("principal");
+   board.setCount(0);
+   board.setUser(user);
+   boardRepository.save(board);
+   return true;
+  }else{
+   return false;
+  }
  }
 
  public Page<Board> 글목록(Pageable pageable) {
@@ -88,5 +91,14 @@ public class BoardService {
  @Transactional
  public void 댓글삭제(int replyId) {
   replyRepository.deleteById(replyId);
+ }
+
+ @Transactional
+ public void 댓글수정(int replyId, Reply reply) {
+
+  Reply reply1=replyRepository.findById(replyId).orElse(null);
+
+  reply1.setContent(reply.getContent());
+
  }
 }

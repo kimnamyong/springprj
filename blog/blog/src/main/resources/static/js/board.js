@@ -34,6 +34,24 @@ let index={
    });
   },
 
+   replyUpdate : function(boardId, replyId){
+        let data={
+              content:$("#reply-content").val(),
+            }
+    console.log(boardId,replyId,data)
+      $.ajax({
+        type: "PUT",
+        url: `/api/board/${boardId}/reply/${replyId}`,
+         data:JSON.stringify(data),
+         contentType:"application/json; charset=utf-8",
+          dataType:"json"
+       }).done(function(resp){
+        alert("댓글수정 성공");
+        location.href = `/board/${boardId}`;
+     }).fail(function(error){
+       alert(JSON.stringify(error));
+     });
+    },
 
 
 replySave:function(){
@@ -60,14 +78,13 @@ replySave:function(){
  },
 
 
-
   // 수정하기
   update:function(){
       var id=$('#id').val();
          let data={
             title:$("#title").val(),
            content:$("#content").val()
-      }
+         }
 
     $.ajax({
            type:"PUT",
@@ -82,7 +99,6 @@ replySave:function(){
        alert(JSON.stringify(error));
     });
   },
-
 
    // 삭제하기
    deleteById:function(){
@@ -114,8 +130,14 @@ replySave:function(){
       dataType:"json"
     }).done(
      function(resp){
-       alert("글쓰기가 완료되었습니다.");
-          location.href="/";
+      if(resp.data==1){
+              alert("글쓰기가 완료되었습니다.");
+              location.href="/";
+           }else{
+              alert("로그인을 해주세요.");
+              location.href="/user/loginForm";
+           }
+
     }).fail(function(error){
         alert(JSON.stringify(error));
     });
