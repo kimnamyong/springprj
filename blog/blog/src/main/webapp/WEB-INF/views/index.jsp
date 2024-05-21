@@ -16,8 +16,8 @@ a{outline:0 !important; }
       <div class="card m-2">
          <div class="card-body">
          <h4 class="card-title">글제목 : ${board.title}
-         <span>
-          댓글개수 : <c:out value="${fn:length(board.replies)}" /> 개
+        <span style="font-size:14px;font-weight:normal">
+          [ 댓글 : <c:out value="${fn:length(board.replies)}" /> 개]
           </span>
          </h4>
          <p class="card-text">글 내용: ${board.content}</p>
