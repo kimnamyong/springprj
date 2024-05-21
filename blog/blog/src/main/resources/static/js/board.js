@@ -8,13 +8,43 @@ let index={
      $('#btn-delete').on('click',()=>{
            this.deleteById();
       });
-
   // 수정하기
    $('#btn-update').on('click',()=>{
          this.update();
     });
+    // 답글작성하기
+     $('#btn-reply-save').on('click',()=>{
+         this.replySave();
+      });
 
-   },
+
+
+   }, // init end
+
+replySave:function(){
+    let data={
+      boardId:$("#boardId").val(),
+      content:$("#reply-content").val(),
+    }
+   console.log(data);
+
+   $.ajax({
+      type:"POST",
+      url:`/api/board/${data.boardId}/reply`,
+      data:JSON.stringify(data),
+       contentType:"application/json; charset=utf-8",
+      dataType:"json"
+    }).done(function(resp){
+       console.log(resp)
+       alert("댓글이 등록되었습니다.");
+       location.href=`/board/${data.boardId}`;
+    }).fail(function(error){
+          console.log(error);
+         alert(JSON.stringify(error));
+    });
+ },
+
+
 
   // 수정하기
   update:function(){

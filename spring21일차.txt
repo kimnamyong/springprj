@@ -63,9 +63,12 @@ header.jsp ->회원탈퇴 버튼생성
 회원탈퇴 버튼 클릭
 
 userController.java
+return deleteForm.jsp
+ uri를 생성한다.   /user/{id}/delete
 
 userDelete.jsp
-아이디 / 비밀번호 검사 폼
+id/username/ 비밀번호/ 
+검사 폼(deleteForm.jsp)
 
 회원탈퇴완료 버튼클릭
 -> user.js로 ajax 요청
@@ -78,6 +81,52 @@ UserService.java에서
 회원탈퇴 서비스처리
   findByUserName와 password를 검사해서 
 있으면 탈퇴처리한다.
+
+
+ boardRepository.deleteByUserId(user3.getId());
+
+
+1) 서비스단에 게시글과 답글을 모두 삭제한다. 
+
+@Transactional 처리
+
+boardRepository.deleteByUserId(user3.getId());  
+userRepository.deleteById(id);
+
+ 
+
+2) MySQL에서 Board의 외래키 설정을 cascade->REMOVE로 설정한다.
+
+ 
+
+3) 엔티티에 아래와 같이 설정한다.
+
+@OneToMany(mappedBy="user", fetch=FetchType.EAGER, cascade = CascadeType.REMOVE)
+
+// 외래키 연결된 레코드 삭제처리하기
+
+1번사용자가 작성한 게시글 삭제하기
+delete from board where userId=1
+
+1) 서비스단에서 모두삭제하기
+ boardRepository.deleteByUserId(user3.getId());
+       userRepository.deleteById(id);
+
+2) MySQL에서 설정하기
+외래키를 cascade로 설정한다.
+
+3) 엔티티에서 설정하기
+user.java 엔티티
+
+
+34번게시판
+댓글등록화면 디자인
+
+
+
+
+
+
 
 
 
