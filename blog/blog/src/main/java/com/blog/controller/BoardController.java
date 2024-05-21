@@ -1,7 +1,10 @@
 package com.blog.controller;
 
 import com.blog.model.Board;
+import com.blog.model.Reply;
 import com.blog.model.User;
+import com.blog.repository.BoardRepository;
+import com.blog.repository.ReplyRepository;
 import com.blog.service.BoardService;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,11 +27,19 @@ public class BoardController {
  @Autowired
  private HttpSession session;
 
+ @Autowired
+ BoardRepository boardRepository;
+
+ @Autowired
+ ReplyRepository replyRepository;
+
+
   @GetMapping({"","/"})
   public String index(Model model,@PageableDefault(size=3,sort="id",direction = Sort.Direction.DESC) Pageable pageable) {
 
     Page<Board> boards= boardService.글목록(pageable);
-   model.addAttribute("boards",boards );
+    model.addAttribute("boards",boards );
+
 
    return "index";
   }
@@ -44,6 +55,7 @@ public class BoardController {
 
   User user= (User) session.getAttribute("principal");
   model.addAttribute("board", boardService.글상세보기(id));
+
   return "board/detail";
  }
 

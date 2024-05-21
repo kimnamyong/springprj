@@ -47,6 +47,7 @@ public class BoardService {
   // 조회수 증가
   board.setCount(board.getCount()+1);
   //boardRepository.save(board);
+
   return board;
  }
 
@@ -82,5 +83,10 @@ public class BoardService {
 
   replyRepository.save(requestReply);
 
+ }
+
+ @Transactional
+ public void 댓글삭제(int replyId) {
+  replyRepository.deleteById(replyId);
  }
 }

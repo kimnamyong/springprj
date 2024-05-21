@@ -15,7 +15,11 @@ a{outline:0 !important; }
   <c:forEach var="board" items="${boards.content}">
       <div class="card m-2">
          <div class="card-body">
-         <h4 class="card-title">글제목 : ${board.title}</h4>
+         <h4 class="card-title">글제목 : ${board.title}
+         <span>
+          댓글개수 : <c:out value="${fn:length(board.replies)}" /> 개
+          </span>
+         </h4>
          <p class="card-text">글 내용: ${board.content}</p>
          <a href="/board/${board.id}"
          class="btn btn-primary">상세보기</a>

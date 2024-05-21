@@ -40,7 +40,10 @@ public class Board {
 @OrderBy("id desc")
 @ToString.Exclude
  private List<Reply> replies;
-
+// reply가 외래키를 가지고 있으므로 연관관계의 주인이된다.
+ // 연관관계의 주인이 아닌 객체는 mappedBy 속성을 사용해 주인필드의 변수명을 지정해주면 된다.
+ // 외래키가 있는 곳을 주인으로 지정한다.
+ // 연관관계의 주인은 연관관계를 갖는 두 객체 사이에서 조회, 저장 , 수정, 삭제를 할 수 있지만  주인이 아니면 조회만 가능하다.
 
  @CreationTimestamp
  private Timestamp createDate;
