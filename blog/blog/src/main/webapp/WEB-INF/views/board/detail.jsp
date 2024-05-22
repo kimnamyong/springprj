@@ -36,12 +36,12 @@
   <div class="card">
    <form>
      <input type="hidden" id="boardId" value="${board.id}">
-      <div class="card-body">
-        <textarea class="form-control" id="reply-content"></textarea>
-      </div>
-    <div class="card-footer">
+      <div class="card-body d-flex justify-content-between">
+        <textarea class="form-control" id="reply-content"
+        style="width:90%"
+        ></textarea>
         <button class="btn btn-primary" id="btn-reply-save" type="button">등록</button>
-    </div>
+      </div>
    </form>
 
   </div>

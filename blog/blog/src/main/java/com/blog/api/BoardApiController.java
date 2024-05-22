@@ -1,5 +1,6 @@
 package com.blog.api;
 
+import com.blog.dto.ReplySaveRequestDto;
 import com.blog.dto.ResponseDto;
 import com.blog.model.Board;
 import com.blog.model.Reply;
@@ -41,19 +42,30 @@ public class BoardApiController {
   return new ResponseDto<Integer>(HttpStatus.OK.value(),1);
  }
 
- // 댓글올리기
- @PostMapping("/api/board/{boardId}/reply")
- public ResponseDto<Integer> replySave(@PathVariable int boardId, @RequestBody Reply reply){
-  User user= (User) session.getAttribute("principal");
+ // 댓글올리기-1
 
-  boardService.댓글쓰기(user, boardId, reply);
+// @PostMapping("/api/board/{boardId}/reply")
+// public ResponseDto<Integer> replySave(@PathVariable int boardId, @RequestBody Reply reply){
+//  User user= (User) session.getAttribute("principal");
+//
+//  boardService.댓글쓰기(user, boardId, reply);
+//  return new ResponseDto<Integer>(HttpStatus.OK.value(),1);
+// } //
+
+ @PostMapping("/api/board/{boardId}/reply")
+ public ResponseDto<Integer> replySave(@RequestBody ReplySaveRequestDto replySaveRequestDto){
+
+  boardService.댓글쓰기(replySaveRequestDto);
+
   return new ResponseDto<Integer>(HttpStatus.OK.value(),1);
  }
+
+
 
  // 댓글수정하기
  @PutMapping("/api/board/{boardId}/reply/{replyId}")
  public ResponseDto<Integer> replyUpdate(@PathVariable int replyId, @RequestBody Reply reply){
-  User user= (User) session.getAttribute("principal");
+  //User user= (User) session.getAttribute("principal");
   boardService.댓글수정(replyId, reply);
   return new ResponseDto<Integer>(HttpStatus.OK.value(),1);
  }
