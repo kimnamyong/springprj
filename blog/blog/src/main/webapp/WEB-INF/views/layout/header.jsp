@@ -2,6 +2,15 @@
 pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+
+<sec:authorize access="isAuthenticated()">
+    <!-- 인증된 사용자만 이 내용을 볼 수 있음 -->
+   <p>Welcome, ${pageContext.request.userPrincipal.name}!</p>
+   <p>${pageContext.request.userPrincipal}!</p>
+    <sec:authentication property="principal" var="principal" />
+     <p>${principal}!</p>
+</sec:authorize>
 
 <!DOCTYPE html>
 <html>
@@ -30,7 +39,7 @@ pageEncoding="UTF-8"%>
 
   <div class="collapse navbar-collapse" id="collapsibleNavbar">
    <c:choose>
-       <c:when test="${empty sessionScope.principal}">
+       <c:when test="${empty principal}">
            <ul class="navbar-nav">
                 <li class="nav-item"> <a class="nav-link" href="/loginForm">로그인</a> </li>
                <li class="nav-item"> <a class="nav-link" href="/joinForm">회원가입</a> </li>
