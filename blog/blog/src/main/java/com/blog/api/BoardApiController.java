@@ -1,5 +1,7 @@
 package com.blog.api;
 
+import com.blog.config.PrincipalDetail;
+import com.blog.config.PrincipalDetailService;
 import com.blog.dto.ReplySaveRequestDto;
 import com.blog.dto.ResponseDto;
 import com.blog.model.Board;
@@ -7,10 +9,17 @@ import com.blog.model.Reply;
 import com.blog.model.User;
 import com.blog.service.BoardService;
 import jakarta.servlet.http.HttpSession;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.context.SecurityContext;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 
+@Slf4j
 @RestController
 public class BoardApiController {
 
@@ -20,14 +29,34 @@ public class BoardApiController {
  @Autowired
  HttpSession session;
 
+ @Autowired
+ private PrincipalDetailService principalDetailService;
+
+
+
+ // @PostMapping("/api/board")
+// public ResponseDto<Integer> save(@RequestBody Board board){
+//  Boolean isSession= boardService.글쓰기(board);
+//  if(isSession==true){
+//   return new ResponseDto<Integer>(HttpStatus.OK.value(),1);
+//  }else{
+//   return new ResponseDto<Integer>(HttpStatus.OK.value(),0);
+//  }
+// }
  @PostMapping("/api/board")
  public ResponseDto<Integer> save(@RequestBody Board board){
-  Boolean isSession= boardService.글쓰기(board);
-  if(isSession==true){
+
+
+  SecurityContext securityContext = SecurityContextHolder.getContext();
+  Authentication authentication = securityContext.getAuthentication();
+  UserDetails userDetails = (UserDetails) authentication.getPrincipal();
+
+  log.info("userDetails:"+userDetails.getUsername());
+
+   boardService.글쓰기(board,userDetails.getUsername());
+
    return new ResponseDto<Integer>(HttpStatus.OK.value(),1);
-  }else{
-   return new ResponseDto<Integer>(HttpStatus.OK.value(),0);
-  }
+
  }
 
  @DeleteMapping("/api/board/{id}")

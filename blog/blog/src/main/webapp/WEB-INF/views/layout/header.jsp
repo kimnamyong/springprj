@@ -3,14 +3,13 @@ pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
-
 <sec:authorize access="isAuthenticated()">
     <!-- 인증된 사용자만 이 내용을 볼 수 있음 -->
-   <p>Welcome, ${pageContext.request.userPrincipal.name}!</p>
-   <p>${pageContext.request.userPrincipal}!</p>
+
     <sec:authentication property="principal" var="principal" />
-     <p>${principal}!</p>
+
 </sec:authorize>
+
 
 <!DOCTYPE html>
 <html>

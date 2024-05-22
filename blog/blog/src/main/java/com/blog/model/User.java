@@ -46,4 +46,5 @@ public class User {
  @OrderBy("id desc")
  private List<Board> boards;
 
+
 }

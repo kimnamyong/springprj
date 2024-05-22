@@ -11,11 +11,9 @@ import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import java.sql.ConnectionBuilder;
-import java.util.List;
 
 @Service
 public class BoardService {
@@ -31,18 +29,36 @@ public class BoardService {
  @Autowired
  private HttpSession session;
 
+ @Autowired
+ private AuthenticationManager authenticationManager;
+
+// @Transactional
+// public Boolean  글쓰기(Board board){ // title, content
+//  if(session.getAttribute("principal") != null){
+//   User user= (User) session.getAttribute("principal");
+//
+//   board.setCount(0);
+//   board.setUser(user);
+//   boardRepository.save(board);
+//   return true;
+//  }else{
+//   return false;
+//  }
+// }
+
  @Transactional
- public Boolean  글쓰기(Board board){ // title, content
-  if(session.getAttribute("principal") != null){
-   User user= (User) session.getAttribute("principal");
+ public Boolean  글쓰기(Board board, String user){ // title, content
+
+   User user1= userRepository.findByUsername(user).orElse(null);
+
    board.setCount(0);
-   board.setUser(user);
+   board.setUser(user1);
    boardRepository.save(board);
    return true;
-  }else{
-   return false;
-  }
+
  }
+
+
 
  public Page<Board> 글목록(Pageable pageable) {
   return boardRepository.findAll(pageable);
