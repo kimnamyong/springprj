@@ -19,7 +19,7 @@ public class UserApiController {
  // @Autowired
 // private HttpSession session;
 
- @PostMapping("api/user")
+ @PostMapping("auth/joinProc")
  public ResponseDto<Integer> save(@RequestBody User user){
 
    user.setRole(RoleType.ADMIN);

@@ -3,9 +3,11 @@ let index={
       $('#btn-save').on('click',()=>{
          this.save();
       });
-     $('#btn-login').on('click',()=>{
-        this.login();
-      });
+
+//     $('#btn-login').on('click',()=>{
+//        this.login();
+//      });
+
       // 아이디중복검사
       $('#btn-check').on('click',()=>{
              event.preventDefault();
@@ -156,7 +158,7 @@ let index={
 
     $.ajax({
       type:"POST",
-      url:'/api/user',
+      url:'/auth/joinProc',
       data:JSON.stringify(data), // http body 데이터
       contentType:"application/json; charset=utf-8",
       dataType:"json"

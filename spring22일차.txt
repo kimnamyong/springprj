@@ -64,13 +64,16 @@ ReplySaveRequestDto
 
 39번 시큐리티 테스트하기
 
+ 스프링 시큐리티 로그인 페이지 커스터마이징
+일종의 맞춤 제작 서비스
 
 
+config->SecurityConfig
 
 
+.csrf.disable()
 
-
-
+EncTest.java
 
 
 
