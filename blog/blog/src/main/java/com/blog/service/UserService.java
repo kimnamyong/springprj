@@ -14,10 +14,12 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Optional;
+
 
 @Slf4j
 @Service
-@RequiredArgsConstructor
+//@RequiredArgsConstructor
 public class UserService {
 
  @Autowired
@@ -26,13 +28,13 @@ public class UserService {
  @Autowired
  private BoardRepository boardRepository;
 
-// @Autowired
-// private BCryptPasswordEncoder encoder;
+ @Autowired
+ private PasswordEncoder  encoder;
 
-// @Autowired
-// HttpSession session;
+ @Autowired
+ HttpSession session;
 
- private final PasswordEncoder encoder;
+ //private final PasswordEncoder encoder;
 
 
 // @Transactional
@@ -72,7 +74,7 @@ public class UserService {
  }
 
  public int 중복확인(String username) {
-  User user=userRepository.findByUsername(username);
+  Optional<User> user=userRepository.findByUsername(username);
   if(user==null) return 1;
     else return 0;
  }

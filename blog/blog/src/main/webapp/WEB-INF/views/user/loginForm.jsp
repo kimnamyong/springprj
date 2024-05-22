@@ -3,14 +3,18 @@ pageEncoding="UTF-8"%>
 
 <%@ include file="../layout/header.jsp" %>
 <div class="container">
-     <form>
+      <form action="/auth/loginProc" method="post">
          <div class="form-group">
              <label for="username">Username</label>
-              <input type="text" class="form-control" id="username">
+              <input type="text" class="form-control" id="username"
+              name="username"
+              >
           </div>
          <div class="form-group">
            <label for="password">Password</label>
-            <input type="password" id="password" class="form-control">
+            <input type="password" id="password" class="form-control"
+            name="password"
+            >
        </div>
 
        <div class="form-group form-check">
@@ -19,8 +23,9 @@ pageEncoding="UTF-8"%>
                  type="checkbox" id="memory" >Remember me
          </label>
        </div>
+         <button id="btn-login" class="btn btn-primary">로그인</button>
    </form>
-    <button id="btn-login" class="btn btn-primary">로그인</button>
+
 </div>
 
 <script src="/js/user.js"></script>

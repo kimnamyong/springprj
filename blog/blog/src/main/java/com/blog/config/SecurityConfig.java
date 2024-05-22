@@ -1,7 +1,11 @@
 package com.blog.config;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -18,9 +22,10 @@ public class SecurityConfig {
 
 
  @Bean
- public PasswordEncoder passwordEncoder() {
+ public PasswordEncoder  passwordEncoder() {
   return new BCryptPasswordEncoder();
  }
+
 
  @Bean
  SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
@@ -30,11 +35,13 @@ public class SecurityConfig {
           .csrf((csrf) -> csrf.disable())
           .formLogin((formLogin) -> formLogin
                   .loginPage("/auth/loginForm")
-                  .defaultSuccessUrl("/")
+                  .loginProcessingUrl("/auth/loginProc")
+                  .failureUrl("/login?error")
+                  .defaultSuccessUrl("/",true)
+                  .usernameParameter("username")
+                  .passwordParameter("password")
                   .permitAll())
   ;
   return http.build();
  }
-
-
 }
