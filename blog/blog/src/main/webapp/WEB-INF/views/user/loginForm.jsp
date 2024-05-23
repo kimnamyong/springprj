@@ -26,13 +26,13 @@ pageEncoding="UTF-8"%>
          <button id="btn-login" class="btn btn-primary">로그인</button>
    </form>
 
-   <h3 class="text-red" id="h3" style="color:red">  ${error} </h3>
+   <h3 class="error" id="h3" style="color:red">${error}</h3>
 
 </div>
 
 <script src="/js/user.js"></script>
 <script>
-     if($("#h3").text()!="") alert($("#h3").text());
+     if($("#h3").html() !=""){ alert($("#h3").text()); }
 
 </script>
 
