@@ -44,6 +44,7 @@ public class BoardController {
    return "index";
   }
 
+  // 글쓰기
  @GetMapping("/board/form")
  public String saveForm(){
   return "board/saveForm";

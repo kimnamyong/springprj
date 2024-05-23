@@ -68,6 +68,7 @@ let index={
    update:function(){
      let data={
        id:$('#id').val(),
+       username: $("#username").val(),
        password:$("#password").val(),
        email:$('#email').val()
     }
@@ -117,9 +118,6 @@ let index={
       $('#username').val(localStorage.getItem("username"));
       $('#password').val(localStorage.getItem("password"));
     },
-
-
-
 
 
    login:function(){

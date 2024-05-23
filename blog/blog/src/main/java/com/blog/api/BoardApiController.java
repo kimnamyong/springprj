@@ -33,7 +33,6 @@ public class BoardApiController {
  private PrincipalDetailService principalDetailService;
 
 
-
  // @PostMapping("/api/board")
 // public ResponseDto<Integer> save(@RequestBody Board board){
 //  Boolean isSession= boardService.글쓰기(board);
@@ -51,7 +50,9 @@ public class BoardApiController {
   Authentication authentication = securityContext.getAuthentication();
   UserDetails userDetails = (UserDetails) authentication.getPrincipal();
 
-  log.info("userDetails:"+userDetails.getUsername());
+  log.info("securityContext:"+securityContext);
+  log.info("authentication:"+authentication);
+  log.info("userDetails:"+userDetails);
 
    boardService.글쓰기(board,userDetails.getUsername());
 

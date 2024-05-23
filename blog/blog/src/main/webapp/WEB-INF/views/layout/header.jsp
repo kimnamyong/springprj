@@ -52,6 +52,7 @@ pageEncoding="UTF-8"%>
 
              <li class="nav-item"><a class="nav-link" href="/user/deleteForm">회원탈퇴</a> </li>
 
+            <li class="text-white mt-2"> ${pageContext.request.userPrincipal.name}님 환영합니다. </li>
           </ul>
        </c:otherwise>
    </c:choose>

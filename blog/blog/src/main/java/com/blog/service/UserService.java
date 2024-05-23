@@ -81,11 +81,18 @@ public class UserService {
 
  @Transactional
  public void 회원수정(User user) {
+
   User persistance=userRepository.findById(user.getId()).orElse(null);
-  persistance.setPassword(user.getPassword());
+
+  String rawPassword=user.getPassword();
+  String encPassword=encoder.encode(rawPassword); // 패스워드 암호화
+
+  persistance.setPassword(encPassword);
   persistance.setEmail(user.getEmail());
 
-  session.setAttribute("principal",persistance);
+  log.info("사용자"+persistance.toString());
+
+  userRepository.save(persistance);
  }
 
  @Transactional

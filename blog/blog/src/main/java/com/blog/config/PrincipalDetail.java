@@ -8,17 +8,17 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
 
 
 @Data
 public class PrincipalDetail implements UserDetails {
 
  private User user;  //컴포지션
+
+// 컴포지션(Composition)은 객체 지향 프로그래밍에서 사용되는 개념 중 하나로, 하나의 객체가 다른 객체를 포함하는 것을 의미합니다.
 
  public PrincipalDetail(User user) {
   this.user = user;
