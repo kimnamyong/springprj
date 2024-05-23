@@ -20,6 +20,7 @@ public class PrincipalDetailService implements UserDetailsService {
 
   User principal=userRepository.findByUsername(username).orElseThrow(()->
           new UsernameNotFoundException("사용자 정보가 없습니다."));
+
   log.info("principal:"+ principal);
 
 

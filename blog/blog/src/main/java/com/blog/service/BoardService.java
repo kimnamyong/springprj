@@ -13,6 +13,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -113,20 +114,17 @@ public class BoardService {
 // }
 
  @Transactional
- public void 댓글쓰기(ReplySaveRequestDto replySaveRequestDto) {
+ public void 댓글쓰기(ReplySaveRequestDto replySaveRequestDto, @AuthenticationPrincipal UserDetails user) {
   Board board=boardRepository.findById(replySaveRequestDto.getBoardId()).orElseThrow(()->{
    return new IllegalArgumentException("댓글쓰기 실패: 게시글아이디를 찾을 수 없습니다.");
   });
 
-//  User user=userRepository.findById(replySaveRequestDto.getUserId()).orElseThrow(()->{
-//   return new IllegalArgumentException("댓글쓰기 실패: 유저아이디 찾을 수 없습니다.");
-//  });
 
-  SecurityContext securityContext = SecurityContextHolder.getContext();
-  Authentication authentication = securityContext.getAuthentication();
-  UserDetails userDetails = (UserDetails) authentication.getPrincipal();
+//  SecurityContext securityContext = SecurityContextHolder.getContext();
+//  Authentication authentication = securityContext.getAuthentication();
+//  UserDetails userDetails = (UserDetails) authentication.getPrincipal();
 
-  User user=userRepository.findByUsername(userDetails.getUsername()).orElseThrow(()->{
+  User user1=userRepository.findByUsername(user.getUsername()).orElseThrow(()->{
    return new IllegalArgumentException("댓글쓰기 실패: 유저아이디 찾을 수 없습니다.");
   });
 
@@ -134,7 +132,7 @@ public class BoardService {
 // dto->entity 로 변환하기
 // 방법1 - reply에 update메소드 추가하기
  Reply reply= new Reply();
- reply.update(user,board, replySaveRequestDto.getContent());
+ reply.update(user1,board, replySaveRequestDto.getContent());
 
 // 방법2-builder() 패턴사용하기
 //  Reply reply= Reply.builder().user(user).board(board)
