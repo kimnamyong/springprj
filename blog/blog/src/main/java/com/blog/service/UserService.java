@@ -73,11 +73,17 @@ public class UserService {
      return principal;
  }
 
+
  public int 중복확인(String username) {
+
   Optional<User> user=userRepository.findByUsername(username);
-  if(user==null) return 1;
+  log.info("user:" + user);
+
+  if(user.isPresent()==false) return 1;
     else return 0;
+
  }
+
 
  @Transactional
  public void 회원수정(User user) {

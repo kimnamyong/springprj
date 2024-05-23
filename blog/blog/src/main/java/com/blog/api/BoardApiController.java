@@ -95,7 +95,7 @@ public class BoardApiController {
  // 댓글수정하기
  @PutMapping("/api/board/{boardId}/reply/{replyId}")
  public ResponseDto<Integer> replyUpdate(@PathVariable int replyId, @RequestBody Reply reply){
-  //User user= (User) session.getAttribute("principal");
+
   boardService.댓글수정(replyId, reply);
   return new ResponseDto<Integer>(HttpStatus.OK.value(),1);
  }

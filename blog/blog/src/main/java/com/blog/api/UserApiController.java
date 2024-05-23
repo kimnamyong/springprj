@@ -45,6 +45,8 @@ public class UserApiController {
   }
  }
 
+
+ // 아이디중복확인
  @GetMapping("/api/user/{username}")
  public ResponseEntity<String> check(@PathVariable String username){
 
@@ -63,8 +65,9 @@ public class UserApiController {
   userService.회원수정(user);
 
   // 세션등록
-  Authentication authentication=authenticationManager
-          .authenticate(new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword()));
+  UsernamePasswordAuthenticationToken auth=new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword());
+
+  Authentication authentication=authenticationManager.authenticate(auth);
   SecurityContextHolder.getContext().setAuthentication(authentication);
 
   return new ResponseDto<Integer>(HttpStatus.OK.value(), 1);

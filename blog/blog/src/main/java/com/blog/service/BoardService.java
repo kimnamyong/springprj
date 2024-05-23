@@ -12,6 +12,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContext;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -117,11 +121,14 @@ public class BoardService {
    return new IllegalArgumentException("댓글쓰기 실패: 게시글아이디를 찾을 수 없습니다.");
   });
 
-//  User user=userRepository.findById(replySaveRequestDto.getUserId()).orElseThrow(()->{
-//   return new IllegalArgumentException("댓글쓰기 실패: 유저아이디 찾을 수 없습니다.");
-//  });
+  SecurityContext securityContext = SecurityContextHolder.getContext();
+  Authentication authentication = securityContext.getAuthentication();
+  UserDetails userDetails = (UserDetails) authentication.getPrincipal();
 
-  User user= (User) session.getAttribute("principal");
+  User user=userRepository.findByUsername(userDetails.getUsername()).orElseThrow(()->{
+   return new IllegalArgumentException("댓글쓰기 실패: 유저아이디 찾을 수 없습니다.");
+  });
+
 
 // dto->entity 로 변환하기
 
