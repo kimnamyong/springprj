@@ -118,17 +118,17 @@ public class BoardService {
    return new IllegalArgumentException("댓글쓰기 실패: 게시글아이디를 찾을 수 없습니다.");
   });
 
-  User user=userRepository.findById(replySaveRequestDto.getUserId()).orElseThrow(()->{
-   return new IllegalArgumentException("댓글쓰기 실패: 유저아이디 찾을 수 없습니다.");
-  });
-
-//  SecurityContext securityContext = SecurityContextHolder.getContext();
-//  Authentication authentication = securityContext.getAuthentication();
-//  UserDetails userDetails = (UserDetails) authentication.getPrincipal();
-
-//  User user=userRepository.findByUsername(userDetails.getUsername()).orElseThrow(()->{
+//  User user=userRepository.findById(replySaveRequestDto.getUserId()).orElseThrow(()->{
 //   return new IllegalArgumentException("댓글쓰기 실패: 유저아이디 찾을 수 없습니다.");
 //  });
+
+  SecurityContext securityContext = SecurityContextHolder.getContext();
+  Authentication authentication = securityContext.getAuthentication();
+  UserDetails userDetails = (UserDetails) authentication.getPrincipal();
+
+  User user=userRepository.findByUsername(userDetails.getUsername()).orElseThrow(()->{
+   return new IllegalArgumentException("댓글쓰기 실패: 유저아이디 찾을 수 없습니다.");
+  });
 
 
 // dto->entity 로 변환하기

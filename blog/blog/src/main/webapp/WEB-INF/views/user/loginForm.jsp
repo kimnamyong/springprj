@@ -26,6 +26,8 @@ pageEncoding="UTF-8"%>
          <button id="btn-login" class="btn btn-primary">로그인</button>
    </form>
 
+     ${error}
+
 </div>
 
 <script src="/js/user.js"></script>
