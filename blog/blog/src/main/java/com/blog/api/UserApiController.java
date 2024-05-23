@@ -73,6 +73,7 @@ public class UserApiController {
   return new ResponseDto<Integer>(HttpStatus.OK.value(), 1);
  }
 
+ // 회원탈퇴기능
  @DeleteMapping("/user/delete/{id}")
  public ResponseDto<Integer> delete(@PathVariable Integer id, @RequestBody User user){
     int result= userService.회원탈퇴(id,user);

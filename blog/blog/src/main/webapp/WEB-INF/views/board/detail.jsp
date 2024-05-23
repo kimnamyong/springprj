@@ -35,6 +35,7 @@
 <div class="container">
   <div class="card">
    <form>
+     <input type="hidden" id="userId" value="${board.user.id}">
      <input type="hidden" id="boardId" value="${board.id}">
       <div class="card-body d-flex justify-content-between">
         <textarea class="form-control" id="reply-content"

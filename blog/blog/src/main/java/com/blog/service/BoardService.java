@@ -62,8 +62,6 @@ public class BoardService {
 
  }
 
-
-
  public Page<Board> 글목록(Pageable pageable) {
   return boardRepository.findAll(pageable);
  }
@@ -114,24 +112,26 @@ public class BoardService {
 //
 // }
 
-
  @Transactional
  public void 댓글쓰기(ReplySaveRequestDto replySaveRequestDto) {
   Board board=boardRepository.findById(replySaveRequestDto.getBoardId()).orElseThrow(()->{
    return new IllegalArgumentException("댓글쓰기 실패: 게시글아이디를 찾을 수 없습니다.");
   });
 
-  SecurityContext securityContext = SecurityContextHolder.getContext();
-  Authentication authentication = securityContext.getAuthentication();
-  UserDetails userDetails = (UserDetails) authentication.getPrincipal();
-
-  User user=userRepository.findByUsername(userDetails.getUsername()).orElseThrow(()->{
+  User user=userRepository.findById(replySaveRequestDto.getUserId()).orElseThrow(()->{
    return new IllegalArgumentException("댓글쓰기 실패: 유저아이디 찾을 수 없습니다.");
   });
 
+//  SecurityContext securityContext = SecurityContextHolder.getContext();
+//  Authentication authentication = securityContext.getAuthentication();
+//  UserDetails userDetails = (UserDetails) authentication.getPrincipal();
+
+//  User user=userRepository.findByUsername(userDetails.getUsername()).orElseThrow(()->{
+//   return new IllegalArgumentException("댓글쓰기 실패: 유저아이디 찾을 수 없습니다.");
+//  });
+
 
 // dto->entity 로 변환하기
-
 // 방법1 - reply에 update메소드 추가하기
  Reply reply= new Reply();
  reply.update(user,board, replySaveRequestDto.getContent());

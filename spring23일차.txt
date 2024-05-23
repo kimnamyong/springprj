@@ -34,6 +34,41 @@ blog(블로그)-jsp
 /////////
 ---------------------------
 
+pom.xml
+  config-PrincipalDetail
+          -PrincipalDetailService
+          -SecurityConfig
+
+ controller-BoardController
+              -UserController
+
+ service-BoardService
+          -UserService
+
+webapp-
+
+
+
+192.168.0.210:8088
+여기 접속해서 회원가입해보기
+
+
+회원탈퇴
+로그인에러기능
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

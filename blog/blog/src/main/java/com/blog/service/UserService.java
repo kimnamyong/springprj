@@ -106,9 +106,14 @@ public class UserService {
     User user2=userRepository.findById(id).orElse(null);
 
     if(user2 != null){
-      User user3 = userRepository.findByUsernameAndPassword(user.getUsername(),user.getPassword());
-      if(user3 != null) {
-       boardRepository.deleteByUserId(user3.getId());
+     String realPassword=user2.getPassword();
+     String checkPassword=user.getPassword();
+
+     // 암호화한 패스워드를 비교한다.
+     boolean matches=encoder.matches(checkPassword,realPassword);
+
+      if(matches){
+       boardRepository.deleteByUserId(user2.getId());
        userRepository.deleteById(id);
        return 1;
       }

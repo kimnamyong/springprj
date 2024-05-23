@@ -55,7 +55,7 @@ let index={
     console.log(resp)
       if(resp.data==1){
         alert("회원탈퇴가 완료되었습니다.");
-        location.href="/user/logout";
+        location.href="/logout";
       }else{
         alert("비밀번호가 잘못되었습니다.");
         return false;
