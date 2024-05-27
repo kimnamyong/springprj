@@ -15,4 +15,8 @@ public class ThymeleafExController {
   return "thymeleafEx/thymeleafEx01";
  }
 
+ @GetMapping(value = "/ex07")
+ public String thymeleafExample07(){
+  return "thymeleafEx/thymeleafEx07";
+ }
 }

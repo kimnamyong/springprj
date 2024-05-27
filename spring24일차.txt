@@ -93,6 +93,31 @@ Spring DATA JPA
 
 controller
 
+95번 타임리프 레이아웃 만들기
+
+96번 
+
+http://localhost:8088/thymeleaf/ex07
+
+97번 스프링시큐리티 설정추가하기
+98번 회원가입기능구현하기
+
+
+DTO
+MemberFormDto.java
+
+Entity
+Member.java
+
+
+
+
+
+
+
+
+
+
 
 
 
