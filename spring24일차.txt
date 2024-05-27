@@ -60,11 +60,38 @@ H2DB
 constant
 entity
 
+90번 게시판
+상품 리파지토리 만들고
+H2DB에서 테스트하기
+
+repository 패키지
+ItemRepository
 
 
+application-test.properties
+
+:~test
+
+~/shop
+sa
+1234
+create
+
+jdbc:h2:tcp://localhost/~/shop
+
+우분투 터미널????
 
 
+91번게시판
+쿼리 메소드
 
+92번게시판
+Spring DATA JPA 
+@Query 어노테이션
+
+94번 타임리프 예제 진행하기
+
+controller
 
 
 
