@@ -50,7 +50,15 @@ spring.thymeleaf.prefix=file:src/main/resources/templates/
 H2DB
 인스턴스-가상컴퓨터
 
+88번게시판
+쇼핑몰 프로젝트 생성하기
 
+89번 게시판
+상품 엔티티 설계하기
+
+패키지
+constant
+entity
 
 
 
