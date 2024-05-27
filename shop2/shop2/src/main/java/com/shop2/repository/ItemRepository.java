@@ -1,6 +1,6 @@
 package com.shop2.repository;
 
-import com.shop2.enitty.Item;
+import com.shop2.entity.Item;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.querydsl.QuerydslPredicateExecutor;
 

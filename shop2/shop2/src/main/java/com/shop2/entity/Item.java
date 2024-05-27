@@ -1,4 +1,4 @@
-package com.shop2.enitty;
+package com.shop2.entity;
 
 import com.shop2.constant.ItemSellStatus;
 import jakarta.persistence.*;
