@@ -55,6 +55,74 @@ member/memberForm.html
 
 MainController.java
 
+13 로그인/로그아웃 구현하기
+
+
+new UserDetails(user)
+
+permitAll()은 인증 없이도 접근을 허용하는 것이므로, 보안에 취약할 수 있습니다.
+
+th:field="*{name}"
+id, name, value 로 바인딩
+
+입력필드에 오류 검사하는
+표현식
+${#fields.hasErrors('name')}
+
+http.authorizeRequests()
+http.formLogin()
+http.exceptionHandling()
+
+15장 연관관계 매핑
+
+// Cart.java
+1번주문- 5번 멤버
+2번 주문- 5번멤버
+3번 주문- 10번멤버
+
+// CartItem.java
+
+cart_item_id
+
+cart_id ->cart
+item_id -> item
+
+count
+
+/// Order.java
+order_id
+member_id
+
+날짜
+
+orderStatus
+
+// OrderItem.java
+id
+
+item_id->item
+order_id -> order
+
+orderPrice
+count
+
+날짜
+...................................
+Order <-> OrderItem
+양방향 조회
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
