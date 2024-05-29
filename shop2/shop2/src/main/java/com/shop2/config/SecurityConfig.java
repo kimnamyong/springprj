@@ -29,7 +29,7 @@ public class SecurityConfig{
 
       http.formLogin((form)->form
             .loginPage("/members/login")
-            .defaultSuccessUrl("/")
+            .defaultSuccessUrl("/",true)
             .usernameParameter("email")
             .failureUrl("/members/login/error").permitAll()
             )
