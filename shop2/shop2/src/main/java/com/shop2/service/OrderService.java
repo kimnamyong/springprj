@@ -10,6 +10,7 @@ import com.shop2.repository.MemberRepository;
 import com.shop2.repository.OrderRepository;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.java.Log;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
@@ -19,6 +20,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 
+@Log
 @Service
 @Transactional
 @RequiredArgsConstructor
@@ -34,7 +36,9 @@ public class OrderService {
   Item item = itemRepository.findById(orderDto.getItemId())
           .orElseThrow(EntityNotFoundException::new);
 
+  // log.info("member:"+member);
   Member member = memberRepository.findByEmail(email);
+
 
   List<OrderItem> orderItemList = new ArrayList<>();
 
