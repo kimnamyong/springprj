@@ -16,11 +16,11 @@ public class OrderItem extends BaseEntity{
  @Column(name = "order_item_id")
  private Long id;
 
- @ManyToOne(fetch = FetchType.LAZY)
+ @ManyToOne(fetch = FetchType.EAGER)
  @JoinColumn(name = "item_id")
  private Item item;
 
- @ManyToOne(fetch = FetchType.LAZY)
+ @ManyToOne(fetch = FetchType.EAGER)
  @JoinColumn(name = "order_id")
  private Order order;
 
@@ -30,4 +30,23 @@ public class OrderItem extends BaseEntity{
 
 // private LocalDateTime regTime;
 // private LocalDateTime updateTime;
+ public static OrderItem createOrderItem(Item item, int count){
+  OrderItem orderItem = new OrderItem();
+  orderItem.setItem(item);
+  orderItem.setCount(count);
+  orderItem.setOrderPrice(item.getPrice());
+  item.removeStock(count);
+  return orderItem;
+ }
+
+ // 개별상품 총 주문금액
+ public int getTotalPrice(){
+  return orderPrice*count;
+ }
+
+ // 주문취소한 경우
+ public void cancel() {
+  this.getItem().addStock(count);
+ }
+
 }

@@ -33,7 +33,42 @@ public class Order {
  private LocalDateTime updateTime;
 
  @OneToMany(mappedBy = "order", cascade = CascadeType.ALL
-         , orphanRemoval = true, fetch = FetchType.LAZY)
+         , orphanRemoval = true, fetch = FetchType.EAGER)
  private List<OrderItem> orderItems = new ArrayList<>();
+
+ public void addOrderItem(OrderItem orderItem) {
+  orderItems.add(orderItem);
+  orderItem.setOrder(this);
+ }
+
+ public static Order createOrder(Member member, List<OrderItem> orderItemList) {
+  Order order = new Order();
+  order.setMember(member);
+
+  for(OrderItem orderItem : orderItemList) {
+   order.addOrderItem(orderItem);
+  }
+
+  order.setOrderStatus(OrderStatus.ORDER);
+  order.setOrderDate(LocalDateTime.now());
+  return order;
+ }
+
+ // 총주문금액
+ public int getTotalPrice() {
+  int totalPrice = 0;
+  for(OrderItem orderItem : orderItems){
+   totalPrice += orderItem.getTotalPrice();
+  }
+  return totalPrice;
+ }
+
+ // 취소한 경우
+ public void cancelOrder() {
+  this.orderStatus = OrderStatus.CANCEL;
+  for (OrderItem orderItem : orderItems) {
+   orderItem.cancel();
+  }
+ }
 
 }

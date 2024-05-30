@@ -51,9 +51,7 @@ public class ItemController {
   }
 
   try {
-
    itemService.saveItem(itemFormDto, itemImgFileList);
-
   } catch (Exception e){
    model.addAttribute("errorMessage", "상품 등록 중 에러가 발생하였습니다.");
    return "item/itemForm";
@@ -109,6 +107,14 @@ public class ItemController {
   model.addAttribute("maxPage", 5);   // 페이지번호 5개까지 제한
 
   return "item/itemMng";
+ }
+
+ // 상세페이지
+ @GetMapping(value = "/item/{itemId}")
+ public String itemDtl(Model model, @PathVariable("itemId") Long itemId){
+  ItemFormDto itemFormDto = itemService.getItemDtl(itemId);
+  model.addAttribute("item", itemFormDto);
+  return "item/itemDtl";
  }
 
 }  // end

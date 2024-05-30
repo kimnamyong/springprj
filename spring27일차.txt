@@ -58,22 +58,52 @@ AWS 배포하기
 106번 게시판 상품 등록및 조회하기
 109번 게시판 메인화면 구현
 
+MainItemDto.java
+MainService.java
+MainController
+Main.html
+ItemRepositoryCustom
+ItemRepositoryCustomImpl
 
+MainController->MainService.java->itemRepository
+다시 역순으로 진행해서 MainController->Main.html
 
+반응형 컨테이너
+container-sm mx-auto
+container-lg mx-auto
 
+OutOfStockException
 
+Item.java (엔티티)
+OrderItem(엔티티)
 
+Order(엔티티)
+OrderDto
+----------------------
+OrdeService
+OrderRepository
+OrderController
 
+ItemDtl.html
 
+주문이력조회하기
+주문데이터
+OrderItemDto.java
+- 현재
 
+주문정보
+OrderHistDto 클래스
+-과거
 
+OrderRepository 
 
+OrderService 
+주문 목록 조회
 
+OrderController
+orderHist.html
 
-
-
-
-
+ItemImgRepository 
 
 
 
