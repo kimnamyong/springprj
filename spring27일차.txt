@@ -52,7 +52,6 @@ BackEnd->SpringShop(thymleaf)
 카테고리상품조회
 회원정보수정
 구글,네이버로 로그인하기
-------------------------
 AWS 배포하기
 ----------------------------
 106번 게시판 상품 등록및 조회하기
@@ -104,6 +103,26 @@ OrderController
 orderHist.html
 
 ItemImgRepository 
+
+@Log 
+
+@Slf4j
+log.info("welcome"+name)
+log.info("welcome {}", name)
+@Log 작동안함
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
