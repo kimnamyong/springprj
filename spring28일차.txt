@@ -1,0 +1,109 @@
+스프링 28일차
+
+//스프링관련용어
+DI(의존성주입)
+Object Mapper(ORM)
+AOP
+영속성컨텍스트
+엔티티(Entity)와 DTO
+서비스와 트랜잭션과 롤백
+컨트롤러와 서비스와 리파지토리
+맵퍼와 리파지토리
+mybatis와 JPA
+jsp/mustache/thymeleaf
+ViewResolver
+디스패쳐 dispatcher
+Data Source
+RestController와 Controller
+ResponseBody/RequestBody
+RequestParamer
+PathVariable
+인터셉터와 세션
+연관관계의 주인 mapped by
+영속성컨텍스트->dirty 체킹
+@Transactional
+Optional
+spring security
+------------------------
+///////// 프로젝트
+board(게시판)-mustache
+blog(블로그)-jsp
+쇼핑몰-thymeleaf
+게시판-thymeleaf
+프로젝트 시험문제-
+/////////
+---------------------------
+BackEnd->SpringShop(thymleaf)
+-----------------------
+상품등록및 조회
+상품관리
+상품상세
+주문기능
+주문취소
+주문이력
+장바구니담기
+장바구니조회
+---------------
+관리자회원가입
+주소찾기기능
+이메일인증
+마이페이지
+임시비밀번호발송
+카테고리상품조회
+회원정보수정
+구글,네이버로 로그인하기
+AWS 배포하기
+----------------------------
+115번 장바구니 조회하기
+
+
+조회 페이지-> cartList.html
+
+CartDetailDto.java
+
+CartItemRepository
+
+CartController
+CartService
+cartList.html
+
+CartItem.java
+CartService.java
+
+
+prop 화면에서 변동
+attr  코드상 변동
+
+
+1) cartList.html에서 
+주문하기 버튼클릭
+ajax로 주문요청
+
+2) /cart/orders로
+CartController에 Post맵핑
+
+3) CartController
+-> cartService
+-> orderService
+
+4) 주문완료시
+OrderController에
+/orders로 Get맵핑되서
+
+5) orderHist.html이 열린다.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
