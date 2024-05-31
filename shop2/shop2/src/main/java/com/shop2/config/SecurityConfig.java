@@ -20,11 +20,15 @@ public class SecurityConfig{
  @Bean
  public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 
-      http.authorizeRequests((requests) -> requests
-      .requestMatchers("/css/**", "/js/**", "/imgs/**").permitAll()
-      .requestMatchers("/", "/members/**", "/item/**", "/images/**","/mail/**").permitAll() // 인증없이 접근을 허용
-      .requestMatchers("/admin/**").hasRole("ADMIN")
-      .anyRequest().authenticated()); // 위 경로를 제외한 요청은 인증을 요구
+  http.authorizeRequests()
+          .requestMatchers("/css/**", "/js/**", "/imgs/**").permitAll()
+          .requestMatchers("/", "/members/**", "/item/**", "/images/**","/mail/**").permitAll()
+          .requestMatchers("/admin/**").hasRole("ADMIN")
+          .anyRequest().authenticated()
+          .and()
+          .csrf((csrf) -> csrf
+                  .ignoringRequestMatchers(new AntPathRequestMatcher("/mail/**"))
+                  .ignoringRequestMatchers("/members/findId") )     ;
 
 
       http.formLogin((form)->form

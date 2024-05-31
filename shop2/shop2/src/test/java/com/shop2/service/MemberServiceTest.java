@@ -27,7 +27,7 @@ class MemberServiceTest {
   MemberFormDto memberFormDto = new MemberFormDto();
   memberFormDto.setEmail("test@email.com");
   memberFormDto.setName("홍길동");
-  memberFormDto.setAddress("서울시 마포구 합정동");
+  //memberFormDto.setAddress("서울시 마포구 합정동");
   memberFormDto.setPassword("1234");
   return Member.createMember(memberFormDto, passwordEncoder);
  }
@@ -35,7 +35,7 @@ class MemberServiceTest {
   MemberFormDto memberFormDto = new MemberFormDto();
   memberFormDto.setEmail("test2@email.com");
   memberFormDto.setName("이순신");
-  memberFormDto.setAddress("서울시 마포구 합정동");
+ // memberFormDto.setAddress("서울시 마포구 합정동");
   memberFormDto.setPassword("1234");
   return Member.createMember(memberFormDto, passwordEncoder);
  }

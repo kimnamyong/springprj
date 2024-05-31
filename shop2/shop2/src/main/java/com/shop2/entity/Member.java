@@ -48,7 +48,7 @@ public class Member extends  BaseEntity{
   //member.setAddress(memberFormDto.getAddress());
 
   // member에 각 속성을 set하기 위해 memberFormDto에 추가해야할 내용
-  member.setAddress(memberFormDto.getZipcode());
+  member.setZipcode(memberFormDto.getZipcode());
   member.setDetailaddr(memberFormDto.getDetailaddr());
   member.setStreetaddr(memberFormDto.getStreetaddr());
 
@@ -69,7 +69,7 @@ public class Member extends  BaseEntity{
  // member.setAddress(memberFormDto.getAddress());
 
   // member에 각 속성을 set하기 위해 memberFormDto에 추가해야할 내용
-  member.setAddress(memberFormDto.getZipcode());
+  member.setZipcode(memberFormDto.getZipcode());
   member.setDetailaddr(memberFormDto.getDetailaddr());
   member.setStreetaddr(memberFormDto.getStreetaddr());
 
