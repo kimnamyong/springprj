@@ -94,10 +94,20 @@ OrderController에
 
 
 
+JPA
+Mabatis
+
+memberLoginForm.html
+
+[추가작업]
+1) 메인페이지에 swiper.js
+이미지 슬라이드 붙이기
 
 
 
-
+2) 회원가입을 
+일반회원가입과 
+관리자회원가입 메뉴로 분리하기
 
 
 
