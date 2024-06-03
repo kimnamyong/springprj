@@ -2,16 +2,21 @@ package com.shop2.controller;
 
 import com.shop2.dto.MemberFormDto;
 import com.shop2.entity.Member;
+import com.shop2.repository.MemberRepository;
 import com.shop2.service.MemberService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import java.security.Principal;
 
 @RequestMapping("/members")
 @Controller
@@ -19,6 +24,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class MemberController {
  private final MemberService memberService;
  private final PasswordEncoder passwordEncoder;
+
+ @Autowired
+ private MemberRepository memberRepository;
 
 
  @GetMapping(value = "/new")
@@ -77,7 +85,6 @@ public class MemberController {
 
 
 
-
  @GetMapping(value = "/login")
  public String loginMember(){
   return "/member/memberLoginForm";
@@ -89,6 +96,15 @@ public class MemberController {
   return "/member/memberLoginForm";
  }
 
+// 마이페이지
+@GetMapping("/loginInfo")
+public String memberInfo(Principal principal, ModelMap modelMap){
+ String loginId = principal.getName();
+ Member member = memberRepository.findByEmail(loginId);
+ modelMap.addAttribute("member", member);
+
+ return "mypage/myinfo";
+}
 
 
 

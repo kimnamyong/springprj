@@ -52,14 +52,17 @@
     function confirmNumber(){
         var number1 = $("#number1").val();
         var number2 = $("#Confirm").val();
-        console.log(number1);
-        console.log(number2);
 
-      if(number1 != undefined){
+      if(number1 == ""){
+         alert("인증번호를 입력하세요");
+         return false;
+      }else{
         if(number1 == number2){
             alert("인증되었습니다.");
+            return true;
         }else{
             alert("번호가 다릅니다.");
+            return false;
         }
       }
     }
