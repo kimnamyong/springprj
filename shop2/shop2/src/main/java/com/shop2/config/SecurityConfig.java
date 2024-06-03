@@ -1,7 +1,5 @@
 package com.shop2.config;
 
-import com.shop2.service.MemberService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
@@ -45,9 +43,6 @@ public class SecurityConfig{
         http.exceptionHandling((exception)-> exception.authenticationEntryPoint(new CustomAuthenticationEntryPoint()));
           return http.build();
    }
-
-
-
 
  @Bean
  public PasswordEncoder passwordEncoder() {
