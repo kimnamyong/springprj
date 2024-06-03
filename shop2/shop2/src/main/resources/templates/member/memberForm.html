@@ -24,7 +24,43 @@
     });
   </script>
 
+  <script type="text/javascript">
+    function sendNumber(){
+        $("#mail_number").css("display","block");
+        $.ajax({
+            url:"/mail",
+            type:"post",
+            dataType:"json",
+           crossDomain: true,
+           headers: { 'Access-Control-Allow-Origin': 'http://The web site allowed to access' },
+            data:{"mail" : $("#email").val()},
+            success: function(data){
+                alert("인증번호 발송");
+                 console.log(data);
+                $("#Confirm").val(data);
+                $("#Confirm").attr("value",data);
+            },
+            error:function(request, status, error){
+              alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+             }
+        });
+    }
+
+    function confirmNumber(){
+        var number1 = $("#number1").val();
+        var number2 = $("#Confirm").val();
+
+        if(number1 == number2){
+            alert("인증되었습니다.");
+        }else{
+            alert("번호가 다릅니다.");
+        }
+    }
+  </script>
+
 </th:block>
+
+
 
 <div layout:fragment="content">
   <form role="form" method="post"  th:object="${memberFormDto}">
@@ -37,7 +73,14 @@
       <label th:for="email">이메일주소</label>
       <input type="email" th:field="*{email}" class="form-control" placeholder="이메일을 입력해주세요">
       <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="fieldError">Incorrect data</p>
+      <button type="button" id="sendBtn" name="sendBtn" onclick="sendNumber()">인증번호</button>
     </div>
+
+    <div id="mail_number" name="mail_number" style="display: none">
+      <input type="text" name="number" id="number" style="width:250px; margin-top: -10px" placeholder="인증번호 입력">
+      <button type="button" name="confirmBtn" id="confirmBtn" onclick="confirmNumber()">이메일 인증</button>
+    </div>
+
     <div class="form-group">
       <label th:for="password">비밀번호</label>
       <input type="password" th:field="*{password}" class="form-control" placeholder="비밀번호 입력">
@@ -57,17 +100,14 @@
         <i class="fa fa-search"></i> 우편번호 찾기</button>
 
       <p th:if="${#fields.hasErrors('zipcode')}" th:errors="*{zipcode}" class="fieldError">Incorrect data</p>
-
     </div>
-    <div class="form-group">
-      <input class="form-control" style="top: 5px;" placeholder="도로명 주소" name="streetaddr" id="addr2" type="text"       />
 
+    <div class="form-group">
+      <input class="form-control" style="top: 5px;" placeholder="도로명 주소" name="streetaddr" id="addr2" type="text" />
     </div>
     <div class="form-group">
       <input class="form-control" placeholder="상세주소" name="detailaddr" id="addr3" type="text" />
-
     </div>
-
 
     <div style="text-align: center">
       <button type="submit" class="btn btn-primary" style="">회원가입(저장)</button>
