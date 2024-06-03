@@ -41,7 +41,7 @@
 </th:block>
 
 <div id="container" layout:fragment="content">
-    <body>
+
     <form role="form" class="text-start" method="post" name="sendEmail"
           action="/members/sendEmail">
         <br></br>
@@ -65,7 +65,7 @@
                    th:value="${_csrf.token}">
         </div>
     </form>
-    </body>
+
 </div>
 
 </html>

@@ -80,4 +80,8 @@ public class Member extends  BaseEntity{
   return member;
 
  }
+
+ public void updatePassword(String password) {
+  this.password = password;
+ }
 }
