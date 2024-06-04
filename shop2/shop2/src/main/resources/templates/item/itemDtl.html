@@ -152,7 +152,11 @@
       <span th:unless="${item.itemSellStatus == T(com.shop2.constant.ItemSellStatus).SELL}" class="badge btn-danger mgb-15" >
           품절
         </span>
-      <div class="h4" th:text="${item.itemNm}"></div>
+
+       <div class="h4" th:text="${item.itemNm}"></div>
+
+      [<span th:text="${item.itemCategory}"></span>]
+
       <hr class="my-4">
 
       <div class="text-right">

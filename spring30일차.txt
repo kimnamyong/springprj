@@ -64,9 +64,11 @@ thymeleaf 예제
 123번 게시판
 
 ItemRepositoryCustom.java
+
 ItemRepositoryCustomImpl.java
   where 절 조건 추가
 
+MainItemDto.java 
 ItemDto -> ItemCategory 상품종류
 
 ItemFormDto.java
@@ -77,10 +79,10 @@ Item-> itemCategory 상품종류
  @Column(nullable= false)
  private String itemCategory; //상품종류
 
+ItemDtl.html
 ItemForm.html
 ItemMng.html
 
-getMainItemPage()
 
 
 
