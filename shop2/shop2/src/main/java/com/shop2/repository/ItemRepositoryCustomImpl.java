@@ -92,6 +92,11 @@ public class ItemRepositoryCustomImpl implements ItemRepositoryCustom{
   return StringUtils.isEmpty(searchQuery) ? null : item.itemNm.like("%" + searchQuery + "%");
  }
 
+ private BooleanExpression itemCategoryLike(String searchQuery){
+  return StringUtils.isEmpty(searchQuery) ? null : QItem.item.itemCategory.like("%" + searchQuery + "%");
+ }
+
+
  @Override
  public Page<MainItemDto> getMainItemPage(ItemSearchDto itemSearchDto, Pageable pageable) {
  QItemImg itemImg = QItemImg.itemImg;
@@ -101,6 +106,7 @@ public class ItemRepositoryCustomImpl implements ItemRepositoryCustom{
                  new QMainItemDto(
                          item.id,
                          item.itemNm,
+                         item.itemCategory,
                          item.itemDetail,
                          itemImg.imgUrl,
                          item.price)
@@ -108,7 +114,8 @@ public class ItemRepositoryCustomImpl implements ItemRepositoryCustom{
          .from(itemImg)
          .join(itemImg.item, item)
          .where(itemImg.repimgYn.eq("Y"))  // 대표이미지
-         .where(itemNmLike(itemSearchDto.getSearchQuery()))
+         .where(itemNmLike(itemSearchDto.getSearchQuery())
+         .or(itemCategoryLike(itemSearchDto.getSearchQuery()))) //추가된 부분
          .orderBy(item.id.desc())
          .offset(pageable.getOffset())
          .limit(pageable.getPageSize())
@@ -119,7 +126,9 @@ public class ItemRepositoryCustomImpl implements ItemRepositoryCustom{
          .from(itemImg)
          .join(itemImg.item, item)
          .where(itemImg.repimgYn.eq("Y"))
-         .where(itemNmLike(itemSearchDto.getSearchQuery()))
+         .where(itemNmLike(itemSearchDto.getSearchQuery())
+          .or(itemCategoryLike(itemSearchDto.getSearchQuery()))
+         )
          .fetchOne()
          ;
 
