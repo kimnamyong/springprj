@@ -64,7 +64,6 @@ thymeleaf 예제
 123번 게시판
 
 ItemRepositoryCustom.java
-
 ItemRepositoryCustomImpl.java
   where 절 조건 추가
 
@@ -82,6 +81,25 @@ Item-> itemCategory 상품종류
 ItemDtl.html
 ItemForm.html
 ItemMng.html
+main.html
+
+6월 18일 종강
+오전-취업특강
+오후-> 프로젝트 발표
+어떤 기술
+
+
+비밀번호 체크
+->회원수정 폼
+
+
+
+
+
+
+
+
+
 
 
 

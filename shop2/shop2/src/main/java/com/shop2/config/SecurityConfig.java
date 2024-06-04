@@ -1,5 +1,7 @@
 package com.shop2.config;
 
+import com.shop2.service.MemberService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
@@ -14,6 +16,9 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 @EnableWebSecurity
 @EnableMethodSecurity(securedEnabled=true)
 public class SecurityConfig{
+//
+// @Autowired
+// private MemberService memberService;
 
  @Bean
  public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {

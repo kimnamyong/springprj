@@ -26,8 +26,9 @@ public class Member extends  BaseEntity{
  private String email;
 
  private String password;
- private String address;
+ private String originalpassword;
 
+ private String address;
  private String zipcode; // 우편 번호
 
  // 새롭게 추가된 코드
@@ -35,6 +36,8 @@ public class Member extends  BaseEntity{
 
  // 새롭게 추가된 코드
  private String detailaddr; // 상세 주소
+
+
 
 
  @Enumerated(EnumType.STRING)
@@ -83,5 +86,25 @@ public class Member extends  BaseEntity{
 
  public void updatePassword(String password) {
   this.password = password;
+ }
+
+ public void updateUsername(String name) {
+  this.name = name;
+ }
+
+ public void updateOriginalPassword(String originalpassword) {
+  this.originalpassword = originalpassword;
+ }
+
+ public void updateAddress(String address) {
+  this.address = address;
+ }
+
+ public void updateStreetAddress(String streetaddr) {
+  this.streetaddr = streetaddr;
+ }
+
+ public void updateDetailAddress(String detailaddr) {
+  this.detailaddr = detailaddr;
  }
 }
