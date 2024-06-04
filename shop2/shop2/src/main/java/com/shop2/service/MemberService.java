@@ -70,7 +70,9 @@ public class MemberService implements UserDetailsService {
   member.updateAddress(memberUpdateDto.getZipcode());
   member.updateStreetAddress(memberUpdateDto.getStreetaddr());
   member.updateDetailAddress(memberUpdateDto.getDetailaddr());
-  member.updateOriginalPassword(memberUpdateDto.getPassword());
+
+  // 예전 비밀번호
+  member.updateOriginalPassword(member.getPassword());
 
   // 회원 비밀번호 수정을 위한 패스워드 암호화
   BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
