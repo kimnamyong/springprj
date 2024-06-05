@@ -4,8 +4,10 @@ import com.security2.config.MyUserDetails;
 import com.security2.dto.User;
 import com.security2.model.UserOAuth2SignUp;
 import com.security2.service.UserService;
+
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
