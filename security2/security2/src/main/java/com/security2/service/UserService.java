@@ -39,14 +39,17 @@ public class UserService {
 
  public UserOAuth2SignUp createUserOAuth2SignUp(OAuth2AuthenticationToken auth) {
 
+ // Map<String, Object> attributes = auth.getPrincipal().getAttributes();
   Map<String, Object> attributes = auth.getPrincipal().getAttributes();
 
  log.info("attributes:"+attributes);
 
   var userOAuthSignUp = new UserOAuth2SignUp();
 
-  userOAuthSignUp.setName(attributes.get("name").toString());
-  userOAuthSignUp.setEmail(attributes.get("email").toString());
+//  userOAuthSignUp.setName(attributes.get("name").toString());
+//  userOAuthSignUp.setEmail(attributes.get("email").toString());
+  userOAuthSignUp.setName((String) attributes.get("name"));
+  userOAuthSignUp.setEmail((String) attributes.get("email"));
 
   return userOAuthSignUp;
  }
